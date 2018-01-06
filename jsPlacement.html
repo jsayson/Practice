@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<link rel="icon" href="./picture/learn-javascript.png" type="image/png">
+<title>javaScript Tutorials</title>
+<!-- javaScript inside head sometimes take time to load-->
+<script type="text/javascript">
+function helloWorld(){
+	document.write("Hello World!");
+}
+</script>
+<style>
+.border{
+	border: solid 2px;
+	text-align: center;
+	margin: 0px 30%;
+	padding-bottom: 10px;
+}
+</style>
+</head>
+	<body>
+		<div class="border">
+		<p>Displays helloWorld() function</p>
+		<button type="submit" onClick="helloWorld()"><label>Click Me</label></button><br>
+		<p>Displays alertMe() function</p>
+		<button type="submit" onCLick="alertMe()"><label>Alert Me</label></button><br>
+		</div>
+		<!-- javaScript inside body runs as the page loads -->
+		<script type="text/javascript">
+		function alertMe(){
+			alert("Hello World");
+		}
+		</script>
+	</body>
+</html>

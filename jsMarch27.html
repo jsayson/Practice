@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head><title>javaScript Tutorials</title>
+<link rel="icon" type="image/png" href="./picture/learn-javascript.png">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<h3 id="title"></h3>
+	<!-- Angular Test -->
+	<div ng-app="" ng-init="kIra">
+		<form name="fForm">
+		<input type="search" ng-model="kIra" name="fName" oninput="return firstFunction();" placeholder="Search a name.">
+		<!-- <input type="submit" value="Yay!"> -->
+	</form>
+		<p>Name : {{kIra}}</p>
+		<p id="searchInfo"></p>
+		<p id="age"><p>
+		<p id="status"></p>
+		<p id="spouse"></p>	
+	</div>
+	<script type="text/javascript">
+	document.getElementById("title").innerHTML="javaScript Tutorials";
+	/*window.onload =*/ function firstFunction(){
+	var fName=document.forms["fForm"]["fName"].value;
+	if(fName==" "){
+		document.getElementById("searchInfo").innerHTML="";
+	}
+	else{
+	var fName=document.forms["fForm"]["fName"].value;
+	var eName="Josemari Ranara Sayson";
+	/*eName.concat("josemari ranara sayson");*/
+	/*var nSplit=eName.split(" ");*/
+	if(/*fName==nSplit||fName==nSplit||*/fName==eName){
+		/*alert("Lol");*/
+		document.getElementById("searchInfo").innerHTML="";
+		document.getElementById("age").innerHTML="Age : 20<br>";
+		document.getElementById("status").innerHTML="Status : Married<br>";
+		document.getElementById("spouse").innerHTML="Spouse : Shandy Resma Sayson<br>";
+	}
+	else{
+		if(fName!=eName){
+		document.getElementById("searchInfo").innerHTML="No results for : <u><i>"+fName+"</i></u>";
+		document.getElementById("age").innerHTML="";
+		document.getElementById("status").innerHTML="";
+		document.getElementById("spouse").innerHTML="";
+		}
+		if(fName==""){
+		document.getElementById("searchInfo").innerHTML="";		
+		}
+	}
+	}	
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		javaScript Tutorials
+	</title>
+	<link rel="icon" type="image/png" href="./picture/learn-javascript.png"> 
+	<link rel="stylesheet" type="text/css" href="./css/jsMarch13.css">
+</head>
+<body>
+	<div id="tutorial"></div>
+	<!-- <div id="form">
+	</div> -->
+	<!-- <script>
+	var creditName="Kira";
+	document.getElementById("tutorial").innerHTML="<h3>javaScript Tutorials</h3>c "+creditName;
+	//document.getElementById("form").innerHTML="<input type='file' accept='image/*'>";
+	/*function tutorial - march 13*/
+	function functionMarch13(){
+		alert("Ouch!, please be gentle.");
+	}
+	</script> -->
+	<script>
+		function viewMe(husband,status,spouse){
+		/* HAHA */
+		husband="Josemari Ranara Sayson";
+		wife="Shandy Resma Sayson";
+		status="married";
+		var age=20;
+	  if(age<19){
+			if(status="Married"){
+			document.write("Name : "+husband+"<br>Age : "+age+"<br>Status : "+status+"<br>Spouse : "+wife);	
+			}
+			else{
+			document.write("Name : "+husband+"<br>Age : "+age+"<br>Status : Single");
+			}
+		}
+		else{
+			if(status="Married"){
+			document.write("Name : "+husband+"<br>Age : "+age+"<br>Status : "+status+"<br>Spouse : "+wife);	
+			}
+			else{
+			document.write("Name : "+husband+"<br>Age : "+age+"<br>Status : Single");	
+			}
+		}
+		/*document.getElementById("name").innerHTML=viewMe();*/
+	}
+	/*viewMe("Josemari Ranara Sayson", "Married", "Shandy Resma Sayson");*/
+	</script>
+	<form>
+	<!-- <input type="submit" value="Touch me" onClick="functionMarch13()"> -->
+	<input type="submit" value="Know me" onClick="viewMe()">
+	</form>
+	<p id="name"></p>
+	<p id="age"></p>
+	<p id="status"></p>
+	<p id="spouse"></p>
+</body>
+</html>

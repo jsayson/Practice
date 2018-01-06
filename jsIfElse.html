@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>javaScript Tutorials</title>
+<link rel="icon" href="./picture/learn-javascript.png" type="image/png">
+<link rel="stylesheet" type="text/css" href="./css/jsIfElse.css">
+<script type="text/javascript">
+	function jsCondition(){
+	var fName = document.forms["regForm"]["fName"].value;
+	var lName = document.forms["regForm"]["lName"].value;
+	var eAdd = document.forms["regForm"]["eAdd"].value;
+	var uName = document.forms["regForm"]["uName"].value;
+	var pWord = document.forms["regForm"]["pWord"].value;
+	if(fName==""){
+		document.getElementById("fName").innerHTML="Invalid Input";
+		/*document.forms["regForm"]["First Name"].value="Invalid Input";*/
+	}
+	if(lName==""){
+		document.getElementById("lName").innerHTML="Invalid Input";
+	}
+	if(eAdd==""){
+		document.getElementById("eAdd").innerHTML="Invalid Input";
+	}
+	if(uName==""){
+		document.getElementById("uName").innerHTML="Invalid Input";
+	}
+	if(pWord==""){
+		document.getElementById("pWord").innerHTML="Invalid Input";
+	}
+	}
+</script>
+</head>
+<body>
+	<div class="border">
+	<div class="title">
+	<h3 style="text-align:left;">Conditional Statement</h3>
+	</div><div class="float">
+	<div class="middleMargin"><span class="header"><h2>Sign Up</h2></span>
+	<span class="description">It's free and will always be.</span></div><br>
+	<form name="regForm" method="post">
+	<input type="text" placeholder="First name" class="text text1" name="fName"><label id="fName"></label>
+	<input type="text" placeholder="Last name" class="text text1" name="lName"><label id="lName"></label><br>
+	<input type="text" placeholder="Email" class="text" name="eAdd"><label id="eAdd"></label><br>
+	<input type="text" placeholder="Username" class="text" name="uName"><label id="uName"></label><br>
+	<input type="password" placeholder="Password" class="text" name="pWord"><label id="pWord"></label><br>
+	<input type="submit" value="Test" onClick="jsCondition(); return false;" class="button button1"></form>
+	</div></div>
+</body>
+</html>

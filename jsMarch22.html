@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>javaScript Tutorial</title>
+<link rel="icon" type="image/png" href="./picture/learn-javascript.png">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+body{
+	text-align: center;
+	background-color: #EDF0F5;
+}
+#middleMargin{
+	margin-left: 50%;
+}
+#introduction{
+	float: left;
+	font-family: times;
+	color: #17adc4;
+}
+#message{
+	float: left;
+}
+</style>
+</head>
+<body>
+<h2>Binary to Text Generator</h2>
+<h3 id="title"></h3>	
+<!-- Learning Angular JS -->
+<div ng-app="">
+<textarea placeholder="Enter a message" ng-model="message" rows="43" cols="77" id="message"></textarea>
+<div id="middleMargin"><label style="float: left;">Hello!</label><p id="introduction"> {{message}}</p>
+</div>
+</div>
+</body>
+</html>

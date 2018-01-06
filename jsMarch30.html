@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>javaScript Tutorials</title>
+<link rel="icon" type="image/png" href="./picture/learn-javascript.png">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+<!-- Angular Edition -->
+<h3 id="title"></h3>
+<div ng-app="myApp" ng-controller="myCtrl">
+<!-- Angular Modeling -->
+<form name="myForm">
+<input type="text" ng-model="name" name="name" placeholder="Name"><label id="error"></label><br>
+<input type="submit" onClick="notif()">
+<p>{{name}}</p>
+<p id="nameSuggestions">{{suggestion}}</p>
+</form>
+</div>
+<script type="text/javascript">
+document.getElementById("title").innerHTML="javaScript tutorials";
+var model=angular.module('myApp', []);
+model.controller('myCtrl', function($scope){
+	$scope.name="";
+	/*var name=document.forms["myForm"]["name"].value;*/
+	/*if($scope.name!=""){*/
+		/*$scope.suggestion="Name Suggestions";*/
+	/*}*/
+});
+function notif(){
+	var name=document.forms["myForm"]["name"].value;
+	if(name==""){
+		document.getElementById("error").innerHTML="<span style='color:red'>Please Enter a Name.</span>";
+		document.getElementById("nameSuggestions").innerHTML="";
+	}
+	else{
+		document.getElementById("nameSuggestions").innerHTML="Name Suggestions";
+		document.getElementById("error").innerHTML="";
+	}
+}
+</script>
+</body>
+</html>

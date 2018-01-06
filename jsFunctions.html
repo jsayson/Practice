@@ -1,0 +1,72 @@
+<!doctype HTML>
+<html>
+<head><title>javaScript Tutorials</title>
+<link rel="icon" href="./picture/learn-javascript.png" type="image/png">
+<link rel="stylesheet" type="text/css" href="./css/jsFunctions.css">
+<script type="text/javascript">
+function displayFunction(){
+	document.getElementById("Display").innerHTML="The First Function(string)";
+}
+function displayAddVarFunc(x,y){
+	return x+y;
+}
+function displayDiffVarFunc(x,y){
+	return x-y;
+}
+function displayProVarFunc(x,y){
+	return x*y;
+}
+function displayQuoVarFunc(x,y){
+	return x/y;
+}
+function displayAddVarFunction(){
+	document.getElementById("sumOfVar").innerHTML=displayAddVarFunc(5,10);
+}	
+function displayDiffVarFunction(){
+	document.getElementById("diff").innerHTML=displayDiffVarFunc(5,10);
+}
+function displayProVarFunction(){
+	document.getElementById("product").innerHTML=displayProVarFunc(5,10);
+}
+function displayQuoVarFunction(){
+	document.getElementById("quotient").innerHTML=displayQuoVarFunc(5,10);
+}
+</script>
+</head>
+<body>
+	<!-- Function Tutorials -->
+	<div class="border">
+	<h3>Function Tutorials</h3>
+	<p class="quote"><i>"Var <span class="text-design">X=5</span> And Var <span class="text-design">Y=10</span>"</i></p>
+	<div class="functionRows">
+	<p>Display first function</p>
+	<p id="Display"></p>
+	<input type="submit" value="Click" onClick="displayFunction()" class="button">
+	</div>
+	<div class="functionRows">
+	<!-- Returns the value of 'x' and 'y' -->
+	<p>Function : Sum</p>
+	<p id="sumOfVar"></p>
+	<input type="submit" value="Click" onClick="displayAddVarFunction()" class="button">
+	</div>
+	<div class="functionRows">
+	<!-- Returns the value of 'x' and 'y' -->
+	<p>Function : Difference</p>
+	<p id="diff"></p>
+	<input type="submit" value="Click" onClick="displayDiffVarFunction()" class="button">
+	</div>
+	<div class="functionRows">
+	<!-- Returns the value of 'x' and 'y' -->
+	<p>Function : Product</p>
+	<p id="product"></p>
+	<input type="submit" value="Click" onClick="displayProVarFunction()" class="button">
+	</div>
+	<div class="functionRows">
+	<!-- Returns the value of 'x' and 'y' -->
+	<p>Function : Quotient</p>
+	<p id="quotient"></p>
+	<input type="submit" value="Click" onClick="displayQuoVarFunction()" class="button">
+	</div>
+	</div>
+</body>
+</html>

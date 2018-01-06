@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>javaScript Tutorials</title>
+<link rel="icon" type="image/png" href="./picture/learn-javascript.png">
+</head>
+<body onLoad="addingArray()">
+<h2 id="title"></h2>
+<p id="displayJoin"></p>
+<p id="displayPop"></p>
+<p id="displayReverseArray"></p>
+<script type="text/javascript">
+	document.getElementById("title").innerHTML="javaScript Tutorials";
+	var name;
+	/*Adding array elements using methods*/
+	function addingArray(){
+	name = prompt("Search your Name : ");
+	if(name!=""){
+		if(name == "Josemari Ranara Sayson" || name == "josemari ranara sayson"){
+		var myAge = 20;
+		var myAddress = "California"
+		/*function firstFunction(){*/
+		var firstArray = new Array("Name : ");
+		/*var displayArray = new firstArray;*/
+		var displayJoin = firstArray.join(" ");
+		var wife = new Array("Shandy Resma Sayson");
+		/*var displayPop = firstArray[3].pop();*/
+		/*document.getElementById("displayJoin").innerHTML=displayJoin;*/
+		document.write(displayJoin+" <i>"+name+"</i><br>");
+		document.write("Spouse : "+wife+"<br>");
+		document.write("Age : "+myAge+"<br>");
+		document.write("Address : "+myAddress+"<br>");
+		/*document.write(display.pop);*/
+		/*}*/	
+		}
+		else{alert("Hello "+name);
+		/*function firstFunction(){*/
+		var firstArray = new Array("Name : ");
+		/*var displayArray = new firstArray;*/
+		var displayJoin = firstArray.join(" ");
+		/*var displayPop = firstArray[3].pop();*/
+		/*document.getElementById("displayJoin").innerHTML=displayJoin;*/
+		document.write(displayJoin+" <i>"+name+"</i><br>");
+		/*document.write(display.pop);*/
+		/*}*/ 
+		}
+	}
+	else{
+		/*function reverseTutorial(){
+		Reverse tutorial, but i dont know what reverse is For? it reverses an Array*/
+		var reverseArray = new Array(".","you","about","more","Know");
+		var newReverseArray = reverseArray.reverse().join(" ");
+		document.write(newReverseArray)/*getElementById("displayReverseArray").innerHTMl=newReverseArray*/;
+		/*var firstReverse = "DOG";
+		var reverseFirst = firstReverse.reverse();
+		document.write(reverseFirst);
+		var newString = "Reverse this string";
+		document.write(reverseString(newString));		
+		}*/
+		/*function addArray(){*/
+			var addArray = new Array();
+			for(var i=0;i<=5;i++){
+				addArray[i] = prompt("Add something in the Array");
+			}
+			document.write("<br>");
+			var joinAddArray = addArray.join(" ");
+			document.write(joinAddArray);
+		/*}*/
+	}
+	}
+</script>
+<p>Reload the page if not working</p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>javaScript Tutorials</title>
+	<link rel="icon" type="image/png" href="./picture/learn-javascript.png">
+	<!-- <link rel="stylesheet" type="text/css" href="./css/jsMarch24.css"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+<!-- Angular Tutorial mga bes -->
+<div class="margin">
+<div class="tBg"><h3 id="title"></h3></div>
+<!-- <p id="editor" ng-app>{{5+5}}</p> -->
+<div ng-app="" ng-init="first; second;"><div class="boxBorder">
+<input type="number" ng-model=first value={{first}} class="box" placeholder="Number"><input type="number" ng-model=second value={{second}} class="box" placeholder="Number"><br></div>
+<label><u>Operations use : '<span style="color:red"><i>+ - * / %</i></span>'</u></label>
+<!-- Operators -->
+<table class="tDesign">
+<tr><th>Operator</th><th>Answer</th></tr>
+<tr><td class="Defin">Sum :</td><td> {{first+second}}</td></tr> <!-- add -->
+<tr><td class="Defin">Difference :</td><td> {{first-second}}</td></tr> <!-- subtract -->
+<tr><td class="Defin">Product :</td><td> {{first*second}}</td></tr> <!-- multiply -->
+<tr><td class="Defin">Quotient :</td><td> {{first/second}}</td></tr> <!-- divide -->
+<tr><td class="Defin">Modulus :</td><td> {{first%second}}</td></tr> <!-- modulus -->
+</table>
+</div>
+</div>
+<script type="text/javascript">
+document.getElementById("title").innerHTML="javaScript Tutorials";
+</script>
+</body>
+</html>

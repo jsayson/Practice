@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>javaScript Tutorials</title>
+<link rel="icon" type="image/png" href="./picture/learn-javascript.png"> 
+<script type="text/javascript">
+/*form validation function*/
+function formFunction(){
+	if(document.firstForm.chckbox.checked){
+		alert(document.firstForm.fname);
+	}
+	else{
+		alert("Please Check the box");	
+	}
+}
+</script>
+</head>
+<body>
+	<h1>javaScript Tutorial</h1>
+	<p id="displayArray"></p>
+	<p id="otherArray"></p>
+	<p id="concatArray"></p>
+	<!-- Arrays -->
+	<script type="text/javascript">
+	/*new array*/
+	var newArray = new Array("Array - 0","Array - 1","Array - 2");
+	document.getElementById("displayArray").innerHTML=newArray[2];
+	/*Other ways in writing arrays*/
+	var secondArray = new Array(4);
+	secondArray[0] = "0 - Array";
+	secondArray[1] = "1 - Array";
+	secondArray[2] = "2 - Array";
+	secondArray[3] = "3 - Array";
+	secondArray[4] = "4 - Array";
+	for(var i=0;i<=4;i++){
+	document.write(/*getElementById("otherArray").innerHTML=*/secondArray[i]+"<br>");
+	}
+	/*array properties and method*/
+	/*arrays with concat*/
+	var magic = new Array("0-Magic","1-Magic","2-Magic");
+	var spell = new Array("0-Spell","1-Spell","2-Spell");
+	var wizard = spell.concat(magic);
+	document.getElementById("concatArray").innerHTML=wizard[5];
+	</script> 
+	<!-- Simple Form Validition -->
+	<form name="firstForm">
+	<input type="checkbox" name="chckbox">
+	<input type="text" name="fName" placeholder="First Name" class="txtBox">
+	<input type="text" name="lName" placeholder="Last Name" class="txtBox">
+	<input type="submit" name="submit" value="Submit" onClick="formFunction()">
+	</form>
+</body>
+</html>

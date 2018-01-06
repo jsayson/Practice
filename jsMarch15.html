@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>javaScript Tutorial</title>
+<link rel="icon" type="image/png" href="./picture/learn-javascript.png">
+<script>
+function newObject(objName, desCription){
+	this.objName=objName;
+	this.desCription=desCription;
+}
+</script>
+</head>
+<body>
+	<h2 id="title"></h2>
+	<p id="length"></p>
+	<p id="obj"></p>
+	<p id="firstObj"></p>
+	<p id="secondObj"></p>
+	<p id="nextObj"></p>
+<script type="text/javascript">
+	document.getElementById("title").innerHTML="javaScript Tutorial";
+	/* javaScript Objects */
+	var testLength = "";
+	document.getElementById("length").innerHTML="'Length' has a length of "+"<u><span style='color:#2777f7';><i>"+testLength.length+"</i></nav></u>";
+	var firstObj = new newObject("Samsung" , "Cellphone");
+	var secondObj = new newObject("Dell" , "Laptop");
+	document.getElementById("firstObj").innerHTML=firstObj.objName+" "+firstObj.desCription;
+	document.getElementById("secondObj").innerHTML=secondObj.objName+" "+secondObj.desCription;
+	/*document.wriet(firstObj.objName, firstObj.desCription);
+	function nextObj(){*/
+	/* OBJECT INITIALIZERS */
+	var obj={carBrand : "Ferrari", carColor : "Red"};
+	document.getElementById("nextObj").innerHTML=obj.carBrand+" "+obj.carColor;
+	/*var carBrand= new obj(carBrand : "Honda",carColor : "Black");
+	}*/
+
+</script>
+</body> 
+</html>

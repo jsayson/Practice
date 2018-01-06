@@ -1,0 +1,36 @@
+<!doctype HTML>
+<html>
+<head>
+<link rel="icon" href="./picture/learn-javascript.png" type="image/png">
+<title>javaScript Tutorials</title>
+</head>
+<body>
+<h3>Global Variables</h3>
+<p>var x=1; var y=2; var total=x+y;</p>
+<button type="submit" onClick="globalVar()"><label>Click Me</label></button>
+<h3>Local Variables</h3>
+<p>var x=1<!--It's global value --> var y=3; var total=x+y;</p> 
+<button type="submit" onClick="localVar()"><label>Click Me</label></button>
+	<!-- Using global variables -->
+	<script language="javascript" type="text/javascript">
+		var x=1;
+		var y=2;
+		var total=x+y;
+		function globalVar(){
+			alert(total);
+		}
+	</script>
+	<!-- Using local variables -->	
+	<script type="text/javascript">
+		function localVar(){
+			var y=3;
+			var total=x+y;
+			alert(total);
+		}
+	</script>
+<!-- Displays if the browser does not support javaScript -->
+<noscript>
+Sorry, javaScript is needed
+</noscript>
+</body>
+</hmtl>

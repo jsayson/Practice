@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>javaScript Tutorials</title>
+	<link rel="icon" type="image/png" href="./picture/learn-javascript.png">		
+</head>
+<body onLoad="displayNotification()">
+<div><h1 id="title"></h1></div>
+<p id="displayAns"></p>u
+<p id="call"></p>
+<!-- The return statement -->
+<script type="text/javascript">
+function displayNotification(){
+	alert("<img src='./picture/pitchblack.jpg'>");
+}
+function returnTrial(x,y){
+	z=x+y;
+	return z;
+}
+function firstCall(){
+	document.write("Hi! Im the first function<br>");
+}
+function secondCall(){
+	document.write("And Im the second one<br>");
+}
+function callFunction(){
+	firstCall();
+	secondCall();
+}
+function switchFunction(){
+	var pickCallNo = 1;
+	switch(pickCallNo){
+		case 1:
+		document.write(firstCall());
+		break;
+		default:
+		document.write("lmao");
+
+	}
+}
+document.getElementById("title").innerHTML="javaScript Tutorial";
+document.getElementById("displayAns").innerHTML=returnTrial(10,5);
+// document.getElementById("call").innerHTML=callFunction();
+	callFunction();
+</script> 
+<!-- On mouse over = when the hovers the link -->
+<input type="submit" value="onMouseOver" onMouseOver="alert('On Mouse Over')">
+</body>
+</html>

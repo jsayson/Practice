@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>javaScript Tutorials</title>
+<link rel="icon" type="image/png" href="./picture/learn-javascript.png">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+<h3 id="title"></h3>
+<form name="firstForm">
+<input type="text" placeholder="First Name" name="fName"><label id="firstNameNotif"></label><br>
+<input type="text" placeholder="Last Name" name="lName"><label id="secondNameNotif"></label><br>
+<input type="submit" onClick="notif(); return false;">
+</form>
+<p id="displayName"></p>
+<p id="displaySpouseName"></p>
+<!-- Angular tutorials -->
+<script type="text/javascript">
+	document.getElementById("title").innerHTML="javaScript Tutorials";
+	/*var x = document.getElementById("newInput").innerHTMl=document.write("<input type='text' placeholder='password' name='password'>");
+	document.write(x);
+	function notif(){
+		alert(x);
+	}	*/
+	/*function notif(){
+	var x = document.forms["firstForm"]["fName"].value;
+	if(x==""){
+		alert("Insert First name");
+		}
+	}*/
+	function notif(){
+		var fName=document.forms["firstForm"]["fName"].value;
+		var lName=document.forms['firstForm']["lName"].value;
+		var allName = fName.concat(lName);
+		if(fName==""){
+			document.getElementById("firstNameNotif").innerHTML="Empty Field";
+			/*document.getElementById("secondNameNotif").innerHTML="Empty Field";*/
+		}
+		if(lName==""){
+			document.getElementById("secondNameNotif").innerHTML="Empty Field";	
+		}
+		/*if(allName==fName.concat(sName)){
+			alert(fName);
+		}*/
+		if(fName=="Josemari"&&lName=="Sayson"){
+			var displaySpouse = new Array("Shandy Resma Sayson", "20");
+			var age=20;
+			/*document.getElementById("displayName").innerHTMl="Name : "+lName+", "+fName;*/
+			document.write("Name : "+lName+", "+fName+"<br>");
+			document.write("Age : "+age+"<br>");
+			document.write("Spouse : "+displaySpouse[0]+"<br>");
+			document.write("Spouse Age: "+displaySpouse[1]+"<br>)";
+		}
+	}
+</script>
+</body>
+</html> 
