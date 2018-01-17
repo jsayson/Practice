@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script>
+//You can now use a default parameter for a function
+function yass(x, y = 1, z = 2){
+	console.log(x + y + z);
+}
+yass(1);
+
+//aggregation of remaining arguments into a single parameter of variadic functions
+function aggFunc(x, y, ...b){
+	console.log(b.length);
+	console.log(x + y * b.length);
+}
+aggFunc(1, 2, "Hi", "Magic", 4);
+
+//spread operator
+//the use of ... on strings or an array
+var params = [1,2,3];
+var other = [4,5, ...params];
+function checkSpread(x, y, ...a){
+	console.log(x + y * a.length);
+}
+checkSpread(2, 3, ...other)
+var str = "light";
+var chars = [...str];
+console.log(chars);
+</script>
+</body>
+</html>
