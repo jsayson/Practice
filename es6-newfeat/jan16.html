@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<script>
+	//using const variable => const variable is an immutable variable
+	const constantVal = "This is constant";
+	typeof constantVal === "number" ? true : console.log(constantVal+" and is a string");
+
+	//using the let variable => blocked scope variables and (constants) without hoisting
+	//block scope variables
+	for(let i=0;i<12;i++){
+		// i = 0;
+		console.log(i<10 ? i +" is less than "+ 10 : "Invalid Input");
+	}
+
+	//block scope functions
+	foo();
+	function foo(){ return 1;}
+	foo() === 1;
+	{
+		function foo (){ return 2;}
+		foo() === 2;
+	}
+	foo() === 1;
+	console.log(foo());
+	</script>
+</body>
+</html>

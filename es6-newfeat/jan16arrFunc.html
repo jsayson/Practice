@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta neme="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<script>
+	//using arrow functions
+	//expression bodies
+	//more expressive closure syntax
+	evens = [1,2,3,4,5,6,7,8,9];
+	var pairs = evens.map(v => ({ even: v, odd: v + 1 }))
+	console.log(pairs);
+	var odds = evens.map(v => v % 2 === 0 ? v + 1 : v);
+	console.log(odds);
+	var even = evens.map((v, i) => v + i);
+	console.log(even);
+
+	//statement bodies
+	var nums = [1,2,3,4,5,6,7,8,9,10];
+	var fives = [];
+	/*nums.forEach(v =>{
+		if(v % 5 === 0){
+			fives.push(v);
+		}
+	});*/
+	this.nums.forEach((v) => { if (v % 5 === 0) this.fives.push(v) })
+	console.log(nums);
+	console.log(fives);
+	</script>
+</body>
+</html>
