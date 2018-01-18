@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Canvas</title>
+</head>
+<body>
+<canvas id="c" width="500" height="500"></canvas>
+<script>
+var c = document.querySelector("#c");
+var hover = document.getElementById("c");
+/*hover.addEventListener("mouseover", hoverFunc);
+function hoverFunc(){
+c.style
+}*/
+var ctx = c.getContext("2d");
+ctx.fillText("Diamond", 50, 10);
+ctx.fillStyle = "#F50057";
+ctx.strokeStyle = "#C51162";
+/*ctx.lineWidth = 5;*/
+/*ctx.fillRect(75, 75, 125, 125);
+ctx.strokeRect(50, 50, 150, 150);*/
+
+/*Using moveto starting with the beginPath() function*/
+/*ctx.beginPath();
+ctx.moveTo(50, 50);
+ctx.lineTo(50, 150);
+ctx.lineTo(150, 150);
+ctx.lineTo(150, 50);
+ctx.lineTo(50, 50);
+ctx.stroke();*/
+/*or we can use this code instead*/
+for(i = 1; i <= 4; i++){
+var addIt = 75*i;
+/*ctx.strokeRect(50+addIt, 50+addIt, 50+addIt, 50+addIt); */
+ctx.beginPath();
+ctx.moveTo(50+addIt, 50+addIt);
+ctx.lineTo(0+addIt, 125+addIt);
+ctx.lineTo(50+addIt, 200+addIt);
+ctx.lineTo(100+addIt, 125+addIt);
+ctx.fill();
+/*if(addIt===315){
+	for(j = i; i >= 1; j--){
+		var addIt = 75*i;
+		ctx.beginPath();
+		ctx.moveTo(50-addIt, 50-addIt);
+		ctx.lineTo(0-addIt, 125-addIt);
+		ctx.lineTo(50-addIt, 200-addIt);
+		ctx.lineTo(100-addIt, 125-addIt);
+		ctx.fill();
+	}
+}*/
+}
+/*ctx.clearRect(0, 0, c.width, c.height);*/
+</script>
+</body>
+</html>
