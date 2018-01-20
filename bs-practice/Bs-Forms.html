@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+<style>
+body{
+	overflow-y: scroll;
+}
+#fb:hover{
+	color: #3B5998;
+}
+#twitter:hover{
+	color: #0084b4;
+}
+#ig:hover{
+    color: #cd486b;
+}
+#git:hover{
+    color: #383838;
+}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+<h1 class="text-center"><small>Bootstrap Tutorial</small></h1>
+<div class="container">
+<div class="row">
+<h3>Bootstrap Forms</h3><br>
+<h4>Bootsrap's Default Settings</h4>
+<p>Form controls automatically receive some global styling with Bootstrap:<br><br>
+All textual <code>input</code>, <code>textarea</code>, and <code>select</code> elements with a class of <code>.form-control</code> have a width of <mark>100%</mark>.</p><hr>
+<h3>Bootstrap Form Layouts</h4>
+<p>Bootstrap provides three types of form layouts:</p>
+<ul>
+	<li>Vertical Form(Default)</li>
+	<li>Horizontal</li>
+	<li>Inline Form</li>
+</ul>
+<p>Standar rules for all three form layouts:</p>
+<ul>
+	<li>Wrap labels and form controls in <code>div class="form-group"</code></li>
+	<li>Add class <code>.form-control</code> to all textual <code>input</code>, <code>textarea</code>, and <code>select</code> elements</li>
+</ul>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<h3>Bootsrap Vertical Form (Default)</h3>
+<div class="well well-lg">
+<form>
+	<div class="form-group">
+    <label>Username:</label>
+	<input type="text" placeholder="Username" class="form-control">
+	</div>
+	<div class="form-group">
+    <label>Password:</label>
+    <input type="password" placeholder="Password" class="form-control">
+	</div>
+	<div class="checkbox">
+    <label><input type="checkbox">Remember me?</label>
+	</div>
+	<!-- <div class="btn btn-group"> -->
+    <button type="submit" class="btn btn-default">Login</button>
+    <!-- <a  href="#" class="btn btn-primary">Register</a>
+	</div>	 -->
+</form>
+</div>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<p>In an inline form, all of the elements are inline, left-aligned, and the labels are alongside.</p>
+<div class="alert alert-warning dismissable fade in"><strong>Note</strong>: This only applies to forms within viewports that are at least 768px wide!<a href="#" data-dismiss="alert" class="close" aria-abel="close">&times</a>
+</div>
+<p>Additional rule for an inline form:</p>
+<ul>
+	<li>Add class <code>.form-inline</code> to the <code>form</code> element</li>
+</ul>
+<form class="form-inline">
+<div class="form-group">
+<label class="sr-only">Username:</label>
+<input type="text" class="form-control" placeholder="Username">
+</div>
+<div class="form-group">
+<label class="sr-only">Password:</label>
+<input type="password" class="form-control" placeholder="Password">
+</div>
+<div class="checkbox">
+<label class="sr-only"><input type="checkbox">Remember me?</label>
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-default">Login</button>
+</div>
+</form><br>
+<div class="alert alert-info dismissable fade in"><strong>Tip</strong>:<a href="#" data-dismiss="alert" class="close" aria-label="close">&times</a><br> If you don't include a label for every input, screen readers will have trouble with your forms. You can hide the labels for all devices, except screen readers, by using the <code>.sr-only</code> class</div>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<p>A horizontal form means that the labels are aligned next to the input field (horizontal) on large and medium screens. On small screens (767px and below), it will transform to a vertical form (labels are placed on top of each input).<br><br>
+Additional rules for a horizontal form:
+</p>
+<ul>
+	<li>Add class <code>.form-horizontal</code> to the <code>form</code> Element.</li>
+	<li>Add class <code>.control-label</code> to all <code>label</code> elements.</li>
+</ul>
+<div class="alert alert-info dismissable fade in"><strong>Tip</strong>: Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal layout.<a href="#" class="close" aria-label="close" data-dismiss="alert">&times</a>
+</div>
+<div class="well well-lg">
+<form class="form-horizontal">
+<div class="form-group">
+<label class="control-label col-sm-2">Username:</label>
+<div class="col-sm-8">
+<input type="text" class="form-control" placeholder="Username">
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-sm-2">Password:</label>
+<div class="col-sm-8">
+<input type="password" class="form-control" placeholder="Password">
+</div>
+</div>
+<div class="form-group">
+<div class="col-sm-offset-2 col-sm-10">
+<div class="checkbox">
+<label class="control-label col-sm-2"><input type="checkbox">Remember me?</label>
+</div>
+</div>
+</div>
+<div class="form-group">
+<div class="col-sm-offset-2 col-sm-10">
+<button type="submit" class="btn btn-default">Login</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<h3>Supported Form Controls</h3>
+<p>Bootstrap supports the following controls:</p>
+<a data-toggle="collapse" data-target="#inputSupport">See Controls:</a>
+<div id="inputSupport" class="collapse">
+<ul>
+	<li>input</li>
+	<li>textarea</li>
+	<li>checkbox</li>
+	<li>radio</li>
+	<li>select</li>
+</ul>
+</div>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<h3>Bootstrap Input</h3>
+<p>
+Bootstrap supports all the HTML5 input types: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</p><br>
+<div class="alert alert-warning dismissable fade in"><strong>Note</strong>: Inputs will "NOT" be full styled if their type is not properly declared.<a href="#" data-dismiss="alert" class="close" aria-label="close">&times</a>
+</div>
+<div class="well well-lg">
+	<form class="form-inline">
+		<div class="text-right">
+		<div class="form-group">
+        <label class="sr-only" for="usr">Username</label>
+		<input type="text" placeholder="Username" class="form-control">
+		</div>
+		<div class="form-group">
+        <label class="sr-only" for="pwd">Password</label>
+        <input type="password" class="form-control" placeholder="Password">
+		</div>
+		<button class="btn btn-default" type="submit">Login</button>
+	    </div>
+	</form>
+</div>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<h3>Bootstrap Textarea</h3><br>
+<form class="form-horizontal">
+<div class="form-group">
+<label class="col-sm-2" for="comment">Comment</label>
+<div class="col-sm-10">
+<textarea class="form-control" id="comment"></textarea>
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class="panel-footer text-center">
+<p>Follow me on<p>
+<i class="fa fa-facebook-official" style="font-size:50px;" id="fb"></i>
+<i class="fa fa-twitter-square" style="font-size:50px;" id="twitter"></i>
+<i class="fa fa-instagram" style="font-size:50px;" id="ig"></i>
+<i class="fa fa-github-square" style="font-size:50px;" id="git"></i>
+</div>
+</div>
+</body>
+</html>

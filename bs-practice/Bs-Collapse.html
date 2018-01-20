@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-div">
+<h1 class="text-center"><small>Bootstrap Tutorial</small></h1>
+<div class="well well-lg">
+<div class="row">
+<div class="col-xs-6">
+<h3>Basic Collapsible</h3>
+<p>Collapsibles are useful when you want to hide and show large amount of content:</p>
+<button class="btn btn-warning" data-toggle="collapse" data-target="#demo">Click Me!</button>
+<h2><small>Example Explained</small></h2>
+<p>The <code>.collapse</code> class indicates a collapsible element (a <code>div</code> in our example); <br>this is the content that will be shown or hidden with a click of a button.
+<br><br>To control <mark>(show/hide)</mark> the collapsible content, add the <code>data-toggle="collapse"</code> attribute to an <code>a</code> or a <code>button</code> element. Then add the <code>data-target="#id"</code> attribute to connect the button with the collapsible content (<code>div id="demo"</code>).<br><br><br><strong>Note:</strong> For <code>a</code> elements, you can use the href attribute instead of the <code>data-target</code> attribute:</p>
+</div>
+<div class="col-xs-6">
+<h2><small>Collapse Area</small></h2>
+<div class="collapse" id="demo">
+<div class="alert alert-warning dismissable fade in"><p><strong>Warning! Virus Detected.</strong><a href="#" class="close" aria-label="close" data-dismiss="alert">&times</a></p></div></div>
+</div>
+</div>
+</body>
+</html>

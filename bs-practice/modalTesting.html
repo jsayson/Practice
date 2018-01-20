@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+<title>Html Modal</title>
+<style>
+body{
+	position: relative;
+    background-color: #666;
+}
+.myModal{
+	position: fixed;
+	top: 25%;
+	bottom: 25%;
+	right: 25%;
+	left: 25%;
+	display: none;
+	z-index: 1;
+	height: 500px;
+	width: 50%;
+	border: #ddd 5px solid;
+	background-color: #fff;
+	overflow-y: scroll;
+    border-radius: 2px;
+}
+#myFidget{
+   position: absolute;
+}
+</style>
+</head>
+<body onload="showModal()">
+	<div class="container-fluid">
+    <div class="row">
+    <button class="btn btn-default" id="myTest">Test</button>
+    <!-- My Modal -->
+    <div class="myModal" id="myModalContent">
+    	<!-- Modal Content -->
+    	<div class="text-right">
+    	<a href="#" class="close" id="close"><strong>&times</strong></a><br>
+        </div>
+        <div class="media">
+        <div class="media-left">
+        <img src="./img/fidget.png" class="media-object" style="width:300px" id="myFidget">
+        </div>
+        <div class="media-body">
+        <h3 class="media-heading">Kira Light</h3>
+        <p>Testing</p>
+        </div>
+        </div>
+    </div>
+    </div>
+	</div>
+<script>
+var myButton = document.getElementById('myTest');
+var showMyModal = document.getElementById('myModalContent');
+var close = document.getElementById('close');
+var myFidget = document.getElementById('myFidget');
+myFidget.addEventListener('mouseover',myFidgetFunc);
+close.addEventListener('click',closeModal);
+myButton.addEventListener('click',showModal);
+function closeModal(){
+showMyModal.style.display = 'none';
+}
+function showModal(){
+showMyModal.style.display = 'block';
+}
+window.onmouseleave = function(event){
+	if(event.target == showMyModal){
+		showMyModal.style.display = 'none';
+	}
+}
+function myFidgetFunc(){
+var spinFidget = 0;
+var mySpnner = setInterval(function(){
+    spinFidget++;
+    myFidget.style.transform = 'rotate('+(spinFidget+2)+'deg)';
+    /*myFidget.style.margin*/
+},1);
+}
+</script>
+</body>
+</html>

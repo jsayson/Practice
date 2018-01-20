@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+<style>
+body{
+	overflow-y: scroll;
+	position: relative;
+}
+</style>
+<script>
+/*$(document).ready(function(){
+$('#mySearch').on('click',function(){
+$('#mySearch').animate({width:'500px'});
+});
+});*/
+$(document).click(function(){
+   $(".collapse").collapse('hide');
+});
+</script>
+</head>
+<body>
+<div class="container-fluid">	
+<h1 class="text-center"><small>Bootstrap Tutorial</small></h1>
+<h3>Navigation Bars</h3>
+<div class="container">
+<div class="row">
+<nav class="nav navbar-default">
+<div class="container-fluid">
+	<div class="navbar-header"><a href="#" class="navbar-brand">Header</a>
+	</div>
+<ul class="nav navbar-nav">
+<li class="active"><a href="#">Home</a></li>
+<li><a href="#">Page 1</a></li>
+<li><a href="#">Page 2</a></li>
+<li><a href="#">Page 3</a></li>
+</ul>
+</div>
+</nav><br>
+<div class="well well-sm">
+<p>With Bootstrap, a navigation bar can extend or collapse, depending on the screen size.<br><br>
+A standard navigation bar is created with <code>nav class="navbar navbar-default"</code>.<br><br>
+The following example shows how to add a navigation bar to the top of the page:</p>
+</div>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<h3>Inverted Navigation Bar</h3>
+<p>If you don't like the <code>navbar-default</code> or the default navigation bar, <mark>Bootstrap</mark> provides an alternative, black navbar:</p>
+<div class="well well-lg">
+<nav class="nav navbar-inverse">
+<div class="container-fluid">
+<div class="navbar-header"><a href="#" class="navbar-brand">Header</a></div>
+<ul class="nav navbar-nav navbar-right">
+<li class="active"><a href="#">Home</a></li>
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Page-1 <span class="caret"></span></a>
+	<ul class="dropdown-menu">
+    <li class="dropdown-header">Sub-Menu</li>
+    <li><a href="#">Submenu-1</a></li>
+    <li><a href="#">Submenu-2</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Submenu-3</a></li>
+	</ul>
+</li>
+<li><a href="#">Page-2</a></li>
+<li><a href="#">Page-3</a></li>
+</ul>
+</div>
+</nav>
+</div>
+<p>Just change the <code>.navbar-default</code> into <code>.navbar-inverse</code>.<br><br>
+The <code>.navbar-right</code> class is used to <mark>right-align</mark> navigation bar buttons.</p>
+</div>
+</div>
+<hr>
+<div class="container">
+<div class="row">
+<h3>Navbar Forms</h3>
+<p>To add form elements in a navbar, add the <code>.navbar-form</code> to a form element and add an input(s).</p>
+<div class="alert alert-warning"><strong>Note</strong>: that we have added a <code>.form-group</code> to the <code>div</code> container holding the input. This adds the proper padding if you have more than one inputs.</div>
+<nav class="nav navbar-default">
+<div class="container-fluid">
+<div class="navbar-header"><a href="#" class="navbar-brand">Header</a></div>
+<ul class="nav navbar-nav">
+	<li class="active"><a href="#">Home</a></li>
+	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Page 1<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+        <li class="dropdown-header">Submenu</li>
+        <li class="dropdown-submenu"><a href="#" class="test">Submenu-1 <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        <li class="dropdown-header">Submenu-1</li>
+        <li><a href="#">Submenu-1-1</a></li>
+        <li><a href="#">Submenu-1-2</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Submenu-1-3</a></li>
+        </ul>
+        </li>
+        <li><a href="#">Submenu-2</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Submenu-3</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Page 2</a></li>
+	<li><a href="#">Page 3</a></li>
+</ul>
+<form class="navbar-form navbar-right">
+<div class="input-group">
+<input type="text" class="form-control" placeholder="Search" id="mySearch">
+<div class="input-group-btn">
+<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button></div> 
+</div>
+</form>
+</div>
+</nav><br>
+<p>You can also use the <code>.input-group</code> and <code>.input-group-addon</code> classes to attach an icon or help text next to the input field. You will learn more about these classes in the Bootstrap Inputs chapter.</p>
+</div>
+</div>
+<div class="container">
+<div class="row">
+	<div class="alert alert-warning">
+    <h3>Fixed Navigation Bar</h3>
+    <p>The navigation bar can also be fixed at the top or at the bottom of the page.<br><br>
+    A fixed navigation bar stays visible in a <mark>fixed position (top or bottom)</mark> independent of the page scroll.<br><br>
+    The <code>.navbar-fixed-top</code> class makes the navigation bar fixed at the top</p><br>
+	</div>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<h3>Collapsing The Navigation Bar</h3><br>
+<p>The navigation bar takes up too much space on a small screen.
+<br><br>
+We should hide the navigation bar; and only show it when it is needed.
+<br><br>
+In the following example the navigation bar is replaced by a button in the top right corner. Only when the button is clicked, the navigation bar will be displayed</p><br>
+<nav class="nav navbar-inverse">
+<div class="container-fluid">
+<div class="navbar-header">
+	<button class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+        <a href="#" class="navbar-brand">Header</a></div>
+<div class="collapse navbar-collapse" id="myNavbar">
+<ul class="nav navbar-nav navbar-right">
+<li class="active"><a href="#">Home</a></li>
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Page-1 <span class="caret"></span></a>
+	<ul class="dropdown-menu">
+    <li class="dropdown-header">Sub-Menu</li>
+    <li><a href="#">Submenu-1</a></li>
+    <li><a href="#">Submenu-2</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Submenu-3</a></li>
+	</ul>
+</li>
+<li><a href="#">Page-2</a></li>
+<li><a href="#">Page-3</a></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

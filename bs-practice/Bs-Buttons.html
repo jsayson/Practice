@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<hmtl>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+<style>
+body{
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.blockLevel-Content{
+	width: 100%;
+}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+<h1 class="text-center"><small>Bootstrap Tutorial</small></h1>
+<div class="row">
+<h2><small>Bootstrap Buttons</small></h2><br>
+<div class="col-xs-4">
+	<div class="well well-lg">
+		<p><strong>Bootstrap</strong> provides different styles of buttons, by the use of this classes:</p>
+		<ul>
+			<li><code>.btn</code></li>
+			<li><code>.btn-default</code></li>
+			<li><code>.btn-primary</code></li>
+			<li><code>.btn-success</code></li>
+			<li><code>.btn-info</code></li>
+			<li><code>.btn-warning</code></li>
+			<li><code>.btn-danger</code></li>
+			<li><code>.btn-link</code></li>
+		</ul>
+	</div>
+</div>
+<div class="col-xs-8">
+<h2>Bootstrap Buttons</h2>
+<button class="btn"><label>.btn</label></button>
+<button class="btn btn-default"><label>.btn-default</label></button>
+<button class="btn btn-primary"><label>.btn-primary</label></button>
+<button class="btn btn-success"><label>.btn-success</label></button>
+<button class="btn btn-info"><label>.btn-info</label></button>
+<button class="btn btn-warning"><label>.btn-warning</label></button>
+<button class="btn btn-danger"><label>.btn-danger</label></button>
+<button class="btn btn-link"><label>.btn-link</label></button>
+<h2><small>Button Sizes</small></h2>
+<ul>
+	<li><code>.btn-lg</code> <button class="btn btn-primary btn-lg"><label>Large-size Button</label></button></li><br>
+	<li><code>.btn-md</code> <button class="btn btn-primary btn-md"><label>Medium-size Button</label></button></li><br>
+	<li><code>.btn-sm</code> <button class="btn btn-primary btn-sm"><label>Small-size Button</label></button></li><br>
+	<li><code>.btn-xs</code> <button class="btn btn-primary btn-xs"><label>Es-size Button</label></button></li><br>
+</ul>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-7">
+<div class="blockLevel-Content">
+	<h2>Block Level Buttons</h2>
+	<p>A block level button spans the entire width of the parent element.</p>
+	<button class="btn btn-danger btn-block btn-lg">Button</button><br>
+	<button class="btn btn-warning btn-block btn-lg">Button</button><br>
+	<p>By adding <code>.btn-block</code> in class.</p>
+</div></div>
+<div class="col-xs-5">
+<h2>Active/Disabled Buttons</h2>
+<p>A button can be set to an <mark>active (appear pressed)</mark> or a <mark>disabled (unclickable)</mark> state:</p>
+<div id="alertArea"></div>
+<button class="btn btn-danger btn-block btn-lg active" id="activeButton">Button</button><br>
+<button class="btn btn-warning btn-block btn-lg disabled" id="disabledButton">Button</button><br>
+<p>The class <code>.active</code> makes a button appear pressed, and the class <code>.disabled</code> makes a button unclickable.</p>
+</div>
+</div>
+<hr>
+<div class="well well-lg">
+	<h1>Button Groups</h1>
+	<p>Bootstrap allows you to group a series of buttons together (on a single line) in a button group:</p>
+	<p>Using a cointainer <code>div</code> you can add a class <code>.btn-group</code></p>
+	<div class="btn-group">
+		<button class="btn btn-primary"><label>First-button</label></button>
+		<button class="btn btn-primary" id="secondButton"><label>Second-button</label></button>
+		<button class="btn btn-primary" id="thirdButton"><label>Third-button</label></button>
+	</div>
+</div>
+<div class="row">
+<div class="col-xs-6">
+<p><strong>Tip:</strong> Instead of applying button sizes to every button in a group, use class <code>.btn-group-lg|sm|xs</code> to size all buttons in the group:</p>
+<div class="btn-group-sm">
+<button class="btn btn-success" data-button-id="firstButton-1"><label>Button 1</label></button>
+<button class="btn btn-success" data-button-id="secondButton-2"><label>Button 2</label></button>
+<button class="btn btn-success" data-button-id="thirdButton-3"><label>Button 3</label></button> 
+<div class="groupedAlertArea"></div>
+</div>
+</div>
+<div class="col-xs-6">
+<h2>Using vertical grouped buttons.</h2>
+<p>By adding <code>.btn-group-vertical</code> in class element.</p>
+<div class="btn-group-vertical btn-group-sm">
+<button class="btn btn-primary" data-button-id="firstButton-1-1" id="firstButton-1-1"><label>Button 1</label></button>
+<button class="btn btn-primary" data-button-id="secondButton-2-1" id="secondButton-2-1"><label>Button 2</label></button>
+<button class="btn btn-primary" data-button-id="thirdButton-3-1" id="thirdButton-3-1"><label>Button 3</label></button> 
+</div></div></div>
+<div>
+<h2><small>Justified Group Buttons</small></h2>
+<p>To span the entire width of the screen, use the <code>.btn-group-justified</code> class:</p>
+<p>Sample with <code>a</code> tag.</p>
+<div class="btn-group btn-group-justified">
+<a href="#" class="btn btn-primary" data-button-id="firstButton-1-1-2" id="firstButton-1-1-2">Button 1</a>
+<a href="#" class="btn btn-primary" data-button-id="secondButton-2-1-2" id="secondButton-2-1-2">Button 2</a>
+<a href="#" class="btn btn-primary" data-button-id="thirdButton-3-1-2" id="thirdButton-3-1-2">Button 3</a> 
+</div><br>
+<p class="alert alert-info"><strong>Note</strong>: For <code>button</code> elements, you must wrap each button in a <code>.btn-group</code> class.</p>
+</div>
+<div>
+<h2><small>Nesting Button Groups & Dropdown Menus</small></h2>
+<p>Nest button groups to create dropdown menus:</p>
+<div class="btn-group"> <button type="button" class="btn btn-primary">Button 1</button>
+  <button type="button" class="btn btn-primary">Button 2</button>
+  <div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Button 3<span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">Button 3-1</a></li>
+      <li><a href="#">Button 3-2</a></li>
+    </ul>
+</div>
+</div>
+</div>
+<div>
+<h2><small>Split Button Dropdowns</small></h2>
+<div class="alert alert-info dismissable fade in"><strong>Note</strong>: Using split button dropdowns use another button.<a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a></div>
+<div class="btn-group">
+<button class="btn btn-success">FirstButton</button>
+<button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+	<li>FirstButton-1-1</li>
+	<li>FirstButton-1-2</li>
+</ul>
+</div>
+</div>
+</div>
+<script>
+var activeButton = document.getElementById('activeButton');
+var disabledButton = document.getElementById('disabledButton');
+var firstButton = document.getElementById('firstButton-1-1');
+var secondButton = document.getElementById('secondButton-2-1');
+var thirdButton = document.getElementById('thirdButton-3-1');
+activeButton.addEventListener('click',activeClick);
+disabledButton.addEventListener('mouseover',activeClick);
+function activeClick(){
+document.getElementById('alertArea').innerHTML = '<div class="alert alert-warning alert-dismissable fade in"><strong>Virus Detected!</strong><a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a></div>';
+}
+
+</script>
+</body>
+</hmtl>

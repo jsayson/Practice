@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+<style>
+body{
+	overflow-y: scroll;
+}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+<h1 class="text-center"><small>Bootstrap Tutorial</small></h1>
+<h2>Basic Dropdown</h2>
+<div class="row">
+<div class="col-xs-6">
+<div class="dropdown">
+<button type="submit" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Show more <span class="caret"></span></button>
+<ul class="dropdown-menu">
+	<li>Option 1</li>
+	<li>Option 2</li>
+</ul>
+</div><br><div class="well well-sm">
+<h3>Dropdown Explaination</h3>
+<p>The <code>.dropdown</code> class indicates the dropdown menu.<br><br>To open the dropdown menu, use a <mark>button</mark> or <mark>a-link</mark> with a class of <code>.dropdown-toggle</code> and the <code>.data-toggle="dropdown"</code> attribute.<br><br>The <code>.caret</code> class, creates a carret arrow icon (<span class="caret"></span>), which indicates that the button is a <mark>dropdown</mark>.<br><br>Add the <code>.dropdown-menu</code>class to a <code>ul</code> element to actually build the dropdown menu.</p>
+</div></div>
+<div class="col-xs-6">
+<h3>Dropdown Divider</h3>
+<p>The <code>.divider</code> class is used to separate links inside the dropdown menu with a thin horizontal border:</p>
+<div class="row">
+<div class="col-xs-6">
+<div class="dropdown">
+<div class="btn-group">
+<button class="btn btn-primary">Dropdown</button>
+<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+<ul class="dropdown-menu">
+<li><a href="#">Option-1</a></li>
+<li><a href="#">Option-2</a></li>
+<li class="divider"><li>
+<li><a href="#">Option-3</a></li>
+</ul>
+</div></div></div></div></div></div>
+<hr>
+<h3>Dropdown Header</h3>
+<p>The <code>.dropdown-header</code> class is used to add headers inside the dropdown menu:</p>
+<h2><small>Sample</small></h2>
+<div class="dropdown">
+<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></button>
+<ul class="dropdown-menu">
+<li class="dropdown-header">Header-1</li>
+<li><a href="#">Option 1</a></li>
+<li><a href="#">Option 2</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Header-2</li>
+<li><a href="#">Option 3</a></li>
+</ul>
+</div>
+</div>
+</body>
+</html>

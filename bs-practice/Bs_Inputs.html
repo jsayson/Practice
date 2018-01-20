@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+<style>
+body{
+	overflow-y: scroll;
+}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+<h1 class="text-center"><small>Bootstrap Tutorial</small></h1>
+<div class="container">
+<div class="row">
+<h3>Supported Form Controls</h3>
+<p>Bootstrap supports the following controls:</p>
+<a href="#" data-toggle="collapse" data-target="#inputSupport">See Controls:</a>
+<div id="inputSupport" class="collapse">
+<ul>
+	<li>input</li>
+	<li>textarea</li>
+	<li>checkbox</li>
+	<li>radio</li>
+	<li>select</li>
+</ul>
+</div>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<h3>Bootstrap Input</h3>
+<p>
+Bootstrap supports all the HTML5 input types: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</p><br>
+<div class="alert alert-warning dismissable fade in"><strong>Note</strong>: Inputs will "NOT" be full styled if their type is not properly declared.<a href="#" data-dismiss="alert" class="close" aria-label="close">&times</a>
+</div>
+<div class="well well-lg">
+	<form class="form-inline">
+		<div class="text-right">
+		<div class="form-group">
+        <label class="sr-only" for="usr">Username</label>
+		<input type="text" placeholder="Username" class="form-control">
+		</div>
+		<div class="form-group">
+        <label class="sr-only" for="pwd">Password</label>
+        <input type="password" class="form-control" placeholder="Password">
+		</div>
+		<button class="btn btn-default" type="submit">Login</button>
+	    </div>
+	</form>
+</div>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<h3>Bootstrap Textarea</h3><br>
+<form class="form-horizontal">
+<div class="form-group">
+<label class="col-sm-2" for="comment">Comment</label>
+<div class="col-sm-10">
+<textarea class="form-control" id="comment"></textarea>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+<style>
+body{
+	overflow-y: scroll;
+	position: relative;
+}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+<h1><small>Bootstrap Tutorials</small></h1>
+<h2>Bootstrap Tabs and Pills</h2>
+<hr>
+<div class="container">
+<div class="row">
+	<h3>Menus</h3>
+	<p>Most web pages have some kind of a menu.<br><br>
+		In Html, a menu is often define in an unordered list <code>ul</code>(and styled afterwards), like this:</p><br>
+	<div class="well well-lg">
+		<ul class="nav nav-tabs">
+        	<li class="active"><a href="#">Home</a></li>
+        	<li><a href="#">Menu-1</a></li>
+        	<li><a href="#">Menu-2</a></li>
+        	<li><a href="#">Menu-3</a></li>
+		</ul><br><hr>
+		<p>Tabs are created with <code>ul class="nav nav-tabs"</code> : <br><br><strong>Tip:</strong> Also make the current page with <code>li class="active".</code></p>	
+	</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+	<h3>Tabs With Dropdown Menu</h3>
+	<div class="well well-lg">
+        <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu-1 <span class="caret"></span></a>
+        	<ul class="dropdown-menu">
+        	<li><a href="#">Submenu-1</a></li>
+        	<li><a href="#">Submenu-2</a></li>
+        	<li class="divider"></li>
+        	<li><a href="#">Submenu-3</a></li>
+        	</ul>
+        </li>
+        <li><a href="#">Menu-2</a></li>
+        <li><a href="#">Menu-3</a></li>	
+        </ul>
+    </div>
+</div>
+</div>
+<hr>
+<div class="container">
+<div class="row">
+    <h3>Pills</h3>
+    <p>Pills are created with <code>.nav nav-pills</code>.</p>
+    <div class="well well-lg">
+    	<ul class="nav nav-pills">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Menu-1 <span class="caret"></span></a><ul class="dropdown-menu">
+        	<li class="dropdown-header">Dropdown-Menu</li>
+        	<li><a href="#">Submenu-1</a></li>
+        	<li><a href="#">Submenu-2</a></li>
+        	<li><a href="#">Submenu-3</a></li>
+        </ul></li>
+        <li><a href="#">Menu-2</a></li>
+        <li><a href="#">Menu-3</a></li>  
+    	</ul>
+    </div><hr>
+    <h3>Vertical Pills in a Row</h3>
+    <p>Add <code>.nav-stacked</code> class.</p>
+    <div class="well well-lg">
+    <ul class="nav nav-pills nav-stacked">
+    <li class="active"><a href="#">Home</a></li>
+    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu-1<span class="caret"></span></a><ul class="dropdown-menu">
+    <li class="dropdown-header">Submenu</li>
+    <li class="divider"></li>
+    <li><a href="#">Submenu-1</a></li>
+    <li><a href="#">Submenu-2</a></li>
+    <li><a href="#">Submenu-3</a></li></ul></li>
+    <li><a href="#">Menu-2</a></li>
+    <li><a href="#">Menu-3</a></li>     
+    </ul> 
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

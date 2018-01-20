@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+<title>Boostrap Tutorials</title>
+<script>
+/*$(document).ready(function(){
+	var myIntro = setInterval(function(){
+		$('#intro').html('<small>Bootstrap Introduction</small>').fadeOut('slow',function(){
+			$('#intro').fadeIn('slow');
+		});
+	},'slow');
+});*/
+</script>
+<style>
+/*.firstSection{
+	padding-top: 70px;
+}*/
+.row{
+	border: solid 2px #ddd;
+	height: auto;
+}
+</style>
+</head>
+<body>
+	<!-- Start of My Bootstrap -->
+	<div class="container-fluid">
+	<h1 class="text-center"><small><strong><span id="intro">Bootstrap Introduction</span></strong></small></h1>
+	<div class="firstSection">
+    <h2><small>What is Bootstrap?</small></h2>
+	<ul>		
+		<li>It is a front-end framework for faster and easier web development.</li>
+		<li>Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, as well as optional JavaScript plugins</li>
+		<li>Bootstrap also gives you the ability to easily create responsive designs</li>
+	</ul>
+    </div>
+    <div class="secondSection">
+    	<h1><small>Tutorial 1 - Grid</small></h1>
+    	<h2><small>Bootstrap Grid System</small></h2>
+    	<p>"Bootstrap's grid system allows up to 12 columns across the page."</p>
+    	<ul>
+    		<h3><small>Grid Classes</small></h3>
+    		<p>The Bootstrap grid system has four classes:</p>
+    		<li>xs (for phones)</li>
+            <li>sm (for tablets)</li>
+            <li>md (for desktops)</li>
+            <li>lg (for larger desktops)</li>
+    	</ul>
+        <div class="row">
+            <div class="col-xs-4 text-center" style="background-color:lavender;">
+            	<p>col-xs-4 sample</p>
+            </div>
+            <div class="col-xs-5 text-center" style="background-color:lavenderblush;">
+            	<p>col-xs-5 sample</p>
+            </div>
+            <div class="col-xs-3 text-center" style="background-color:lavender;">
+            	<p>col-xs-3 sample</p>
+            </div>
+        </div>         
+    </div>
+    </div>
+</body>
+</html>

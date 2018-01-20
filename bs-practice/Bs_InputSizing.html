@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+<style>
+body{
+	overflow-y: scroll; 
+}
+</style>
+</head>
+<body>
+<div class="cotainer-fluid">
+<h1 class="text-center"><small>Bootstrap Tutorial</small></h1>
+<div class="container">
+<div class="row">
+	<h3>Bootstrap Input Sizing</h3>
+	<hr>
+	<h3>Input Sizing in Forms</h3><br>
+	<p>Set the <mark>heights</mark> of input elements using classes <code>.input-lg</code> and <code>.input-sm</code>.<br><br>Set the <mark>widths</mark> using grid column classes like <code>.col-lg-*</code> and <code>.col-sm-*</code></p> 
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<h3>Height Sizing</h3><br>
+<div class="well well-lg">
+<form class="form-inline">
+	<div class="text-right">
+	<div class="form-group">
+    <label class="sr-only" for="pwd">Password</label>
+    <input type="password" class="input-sm form-control" placeholder="class = 'input-sm'">
+	</div>
+	<div class="form-group">
+    <label class="sr-only" for="email">Email</label>
+    <input type="text" class="form-control" placeholder="Default Height">
+	</div>
+	<div class="form-group">
+    <label class="sr-only" for="usr">Username</label>
+    <input type="text" class="input-lg form-control" placeholder="class = 'input-lg'">
+	</div>
+    </div>
+</form>
+</div>
+<a href="#info" data-toggle="collapse">Show More Info</a><br><br>
+<div id="info" class="collapse" >
+<div class="alert alert-info dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a> You can quickly size labels and form controls within <strong>Horizontal form</strong> by adding <code>.form-group-*</code> to the div class <code>div class="form-group-lg"</code> element.
+</div>
+<h4>Sample</h4>
+<div class="well well-sm">
+<form>
+	<div class="form-group form-group-lg">
+    <label for="usr">Username</label>
+    <input type="text" class="form-control" placeholder="Username">
+	</div>
+</form>
+</div>
+<div class="alert alert-info dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a> You can also quickly size all inputs and other elements inside an <code>.input-group</code> with the <code>.input-group-sm</code> or <code>.input-group-lg</code> classes:
+</div>
+<div class="well well-sm">
+<form>
+	<div class="form-group">
+    <div class="input-group input-group-lg">
+    <input type="search" placeholder="search" class="form-control">
+    <div class="input-group-btn">
+    <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+    </div>
+    </div>
+	</div>
+</form>
+</div>
+</div>
+</div>
+</div><hr>
+<div class="container">
+<div class="row">
+<h3>Column Sizing</h3>
+<p>The following examples shows input elements with different widths using different <code>.col-xs-*</code> classes.</p>
+<form>
+	<div class="form-group">
+	<div class="col-xs-2">
+    <label for="usr">col-xs-2</label>
+    <input type="text" class="form-control">
+	</div>
+	<div class="col-xs-3">
+    <label for="usr">col-xs-3</label>
+    <input type="text" class="form-control">
+	</div>
+	<div class="col-xs-4">
+    <label for="usr">col-xs-4</label>
+    <input type="text" class="form-control">
+	</div>
+    </div>
+</form>
+</div>
+</div>
+<br></div>
+</body>
+</html>
