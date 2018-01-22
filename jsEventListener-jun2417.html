@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Js-Tutorials</title>
+<script src="./jquery/dist/jquery.min.js"></script>
+<style>
+#input-animation{
+
+}
+</style>
+<script>
+$(document).ready(function(){
+$('#input-animation').on('click',function(){
+	$('#input-animation').animate({width:'300px'});
+});
+});
+</script>
+</head>
+<body>
+	<input type="text" data-id="input-animation" id="input-animation" placeholder="Test Animation">
+	<script>
+/*	var textBox = document.getElementById('input-animation');
+	textBox.addEventListener('click',function(){
+		textBox.style.width = '300px';
+	});*/
+	</script>
+</body>
+</html>

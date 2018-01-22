@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head><title>javaScript Tutorials - DOM Animations</title>
+<link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+<script src="./jquery/dist/jquery.min.js"></script>
+<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+<style>
+#myBackground{
+	background-color: #000;
+	height: 250px;
+	width:250px;
+	position:relative;
+}
+#myObj{
+	position:absolute;
+	background-color: #fff;
+	height: 20px;
+	width: 20px;
+	left:0px;
+	top:0px;
+}
+button,.btn{
+	margin-bottom:2px;
+	margin-top:1px;
+}
+</style>
+</head>
+<body class="container-fluid">
+<div id="myBackground" class="container-fluid">
+<div id="myObj"></div></div>
+<div class="container-fluid text-center">
+<button type="submit" class="btn" id="top" onclick="moveMeTop()">Top</button><br>
+<button type="submit" class="btn" id="left" onclick="moveMeLeft()">Left</button>
+<button type="submit" class="btn" id="right" onclick="moveMeRight()">Right</button><br>
+<button type="submit" class="btn" id="down" onclick="moveMeDown()">Down</button>
+</div>
+<script>
+var myObj = document.getElementById('myObj');
+function moveMeRight(){
+var position = 10;
+/*var setter = setTimeout(function(){*/
+/*if(myObj==mvRight){*/
+/*for(var position = 10;position<=500;position+=10){*/
+myObj.style.left += (position + 'px');
+/*}*/
+/*}*/
+/*},1000);*/
+}
+function moveMeLeft(){
+	var position = 10;
+	return myObj.style.left -= (position + 'px');
+
+}
+function moveMeTop(){
+	var position = 10;
+	myObj.style.top -= (position + 'px');
+}
+function moveMeDown(){	
+	var position = 10;
+	myObj.style.top += (position + 'px');
+}
+</script>
+</body>
+</html>

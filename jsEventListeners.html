@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+<title>jS-Jun2217</title>
+</head>
+<body>
+<input type="text" placeholder="First Integer" id="1stInt">
++
+<input type="text" placeholder="Second Integer" id="2ndInt">
+<p id="answer"></p>
+	<script>
+	var firstInt = document.getElementById('1stInt');
+	var secondInt = document.getElementById('2ndInt');
+	var ans = document.getElementById('answer');
+	firstInt.addEventListener('input',add);
+	secondInt.addEventListener('input',add);
+	function add(){
+		addFirstInt = parseInt(firstInt.value) || 0 ;
+		addSecondInt = parseInt(secondInt.value) || 0;
+		ans.innerHTML = addFirstInt + addSecondInt;
+	}
+	</script>
+</body>
+</html>
