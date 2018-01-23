@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Creating - Canvas
+	</title>
+</head>
+<body id="body">
+	<canvas id="canvas"></canvas>
+	<script>
+	var body = document.getElementById('body');
+	var canvas = document.createElement('canvas');
+	var context = canvas.getContext('2d');
+	canvas.height = 720;
+	canvas.width = 1200;
+	canvas.appendChild(body);
+	context.fillStyle = "#000";
+	</script>
+</body>
+</html>

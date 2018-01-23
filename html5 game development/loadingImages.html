@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- 
+Author : Josemari R. Sayson
+ -->
+<html>
+<head>
+<title>
+Image - Canvas
+</title>
+<style>
+body{	margin: 0px;	}
+</style>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas>
+	<script>
+	/*
+	*LOADING AN IMAGE IN JAVASCRIPT
+	*Step 1: Declare a new Image() object
+	*Step 2: Declare its onload() method 
+	*Step 3: Set the Image.src = "url"
+	*/
+	var canvas = null;
+	var context = null;
+	var img = null;
+	setup = function(){
+		canvas = document.getElementById('canvas');
+		context = canvas.getContext('2d');
+
+		context.width = window.innerWidth;     //The innerWidth property returns the inner width of a window's content area.
+		context.height = window.innerHeight;   //The innerHeight property returns the inner height of a window's content area.
+
+		image = new Image();
+		image.src = '/home/kira/Desktop/mysite/Untitled Folder/wife.jpg';
+		image.onload = function(){
+		/*
+		*DRAW THE IMAGE
+		*Using the method drawImage(image, width, height)
+		*
+		*DRAW IMAGE PARAMETERS
+		*drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
+		*@param image -> is the file 
+		*@param sx and sy is the x and y position in our atlases
+		*@param sw and sh is the width and the height 
+		*@param dx and dy is to draw the position x and y in the canvas
+		*@param dw and dh is to draw the destination width and height
+		*/
+		console.log('Image has been loaded');
+		context.drawImage(image, 0, 0);
+	};
+	};
+	setup();
+	</script>
+</body>
+</html>
