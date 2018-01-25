@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#special{
+	font-weight: bold;
+	color: #37474F;
+	font-size: 40px;
+}
+#keyword{
+	color: #ffffff;
+	background-color: #263238;
+}
+#translate{
+	transform: translate(5px, 10px);
+	background-color: #FFEB3B;
+}
+#rotate{
+	border: 1px solid;
+	transform: rotate(-5deg);
+}
+#skewX{
+	background-color: #FFEB3B;	
+	transform: skewX(2deg);
+}
+#skewY{
+	background-color: #263238;
+	transform: skewY(-2deg);
+}
+#matrix{
+	transform: matrix(1, -.03, 0, 3, 2, 10);
+	background-color: #FFEB3B;
+	border: 1px solid #263238;
+}
+</style>
+</head>
+<body>
+	<span id="special">2D - Transforms</span><br><br>
+	<div><p><span id="keyword"><i>translate(X, Y)<i></span> - it moves the current object to a new location using <span id="keyword">(X, Y)</span>, with absolute location.</p>
+	<p id="translate">Move me to transform: translate(5px, 10px);</p>
+	</div><br>
+	<div>
+	<p><span id="keyword"><i>rotate(*deg)</i></span> - rotates the object by using <span id="keyword">(*deg)</span>.</p>
+	<p id="rotate">rotate me to -5deg please! transform: rotate(-5deg)</p>
+	</div>
+	<br><br>
+	<div>
+	<p><span id="keyword"><i>skewX or skewY(*deg)</i></span> - slants the object to an angle either X or Y base on its <span id="keyword">(*deg)</span></p>
+	<div id="skewX">transform: skewX(10deg);</div>
+	<div id="skewY">transform: skewY(10deg);</div>
+	</div>
+	<br>
+	<div>
+	<p><span id="keyword"><i>matrix()</i></span> - this method combines all the 2D transformations into one, well thats great.<br>
+	@params <span id="keyword">(scaleX(), skewX(), skewY(), scaleY(), translateX(), translateY())</span></p>
+	<p id="matrix">transform: matrix(1, -.03, -0, 3, 2, 10);<p>
+	</div>
+</body>
+</html>

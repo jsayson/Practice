@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#title{
+	font-size: 30px;
+}
+#transitionEff{
+	height: 50px;
+	width: 50px;
+	transition: height 2s, width 2s, transform 2s;
+	border: 1px solid #fff;
+	font-size: 10px;
+	background: linear-gradient(to bottom, #FFECB3, #FFE082, #FFD54F, #FFD54F);
+}
+#transitionEff:hover{
+	width: 250px;
+	height: 250px;
+	font-size: 50px;
+	color: #ffffff;
+	transform: rotateZ(-360deg);
+	background: linear-gradient(to bottom, #FFAB00, #FFC400, #FFD740, #FFE57F);
+}
+</style>
+</head>
+<body>
+	<div id="title">
+		<span>Transitions</span>
+	</div>
+	<div id="transitionEff">
+		<p>show effects</p>
+	</div>
+</body>
+</html>
