@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+	height: 100%;
+	width: 100%;
+}
+div#box{
+	position: fixed;
+	animation: boxAnimation1 1s infinite;
+	height: 100px;
+	width: 100px;
+	border-top-right-radius: 100% !important;
+	border-bottom-left-radius: 100% !important;
+	border-radius: 5%;
+	background-color: #C51162;
+}
+div#box1{
+	position: fixed;
+	left: 100px;
+	animation: boxAnimation1 1s infinite;
+	height: 100px;
+	width: 100px;
+	border-top-left-radius: 100% !important;
+	border-bottom-right-radius: 100% !important;
+	border-radius: 5%;
+	background-color: #C51162;
+}
+div#box2{
+	position: fixed;
+	top: 100px;
+	left: 100px;
+	animation: boxAnimation1 1s infinite;
+	height: 100px;
+	width: 100px;
+	border-top-right-radius: 100% !important;
+	border-bottom-left-radius: 100% !important;
+	border-radius: 5%;
+	background-color: #C51162;
+}
+div#box3{
+	position: fixed;
+	top: 100px;
+	animation: boxAnimation1 1s infinite;
+	height: 100px;
+	width: 100px;
+	border-top-left-radius: 100% !important;
+	border-bottom-right-radius: 100% !important;
+	border-radius: 5%;
+	background-color: #C51162;
+}
+@keyframes boxAnimation1{
+	0%{ background-color: #00BFA5}
+	25%{ background-color: #FF1744}
+	50%{ background-color: #AA00FF}
+	75%{ background-color: #FFB74D}
+	100%{ background-color: #FF6D00}
+}
+</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<div id="box3"></div>
+</body>
+</html>
