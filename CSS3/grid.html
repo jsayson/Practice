@@ -1,0 +1,112 @@
+<!DOCTYP html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+	margin: 0;
+	width: 100%;
+	font-family: arial;
+}
+.grid-container{
+	display: grid;
+  	background-color: #2196F3;
+}
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  height: 50px;
+  padding: 20px 0;
+  font-size: 30px;
+}
+.item1, .item2, .item3, .item4, .item5, .item6, .item7, .item8, .item9{
+	animation: animate 2s infinite;
+}
+@keyframes animate{
+	from{
+		font-size: 30px;
+	}
+	to{
+		font-size: 45px;
+		color: #424242;
+		font-weight: bold;
+		border-bottom-right-radius: 50%;
+		box-shadow: 15px 2px 2px;
+	}
+}
+@media screen and (max-width: 379px){
+	.grid-container{
+		grid-template-columns: auto;
+		grid-row-gap: 10px;
+		padding: 10px;
+	}
+}
+@media screen and (min-width: 380px) and (max-width: 767px){
+	.grid-container{
+		grid-template-columns: auto auto;
+		grid-gap: 20px 10px;
+		padding: 10px;
+	}
+	.item1{
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+	.item5{
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+	.grid-container{
+		grid-template-columns: auto auto auto;
+		grid-gap: 20px 25px;
+		padding: 10;
+	}
+	.grid-container > div{
+		height: 150px;
+	}
+	.item1{
+		grid-column-start: 1;
+		grid-column-end: 4;
+	}
+	.item2{
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+}
+@media screen and (min-width: 992px){
+	.grid-container{
+		grid-template-columns: auto auto auto;
+		grid-template-areas: 'header header header header header header'
+		'menu section1 section1 section1 right right'
+		'menu section2 section2 section2 section2 section2';
+		padding: 50px;
+		grid-gap: 20px 20px;
+	}
+	.grid-container > div{
+		height: 120px;
+	}
+	.item1{
+		grid-area: header;
+	}
+	.item2{ 
+		grid-area: menu;
+	}
+}	
+</style>
+</head>
+<body>
+	<div class="grid-container">
+		<div class="item1">1</div>
+		<div class="item2">2</div>
+		<div class="item3">3</div>
+		<div class="item4">4</div>
+		<div class="item5">5</div>
+		<div class="item6">6</div>
+		<div class="item7">7</div>
+		<div class="item8">8</div>
+		<div class="item9">9</div>
+	</div>
+</body>
+</html>
