@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script>
+function de(){
+	return {name: "kira", place: "England", car: "Porsche"};
+}
+let {n, p, c} = de();
+console.log(`${n} is just got to ${p} with his ${c}`);
+//you can sometimes deconstruct the variable by using the 'key:variable'
+function des(){
+	return {
+		name: "Kira",
+		place: "London",
+		car: "Porsche"
+	}
+}
+let {
+	name : user, place : travel, car : brand 
+} = des();
+console.log(`${user} is driving his car ${brand} to ${travel}`);
+//array destructuring
+let [a, b, cc] = [1, 2, 3];
+console.log(`a=${a}, b=${b}, c=${cc}`);
+//arry destructuring with new function
+function arr(){
+	return ["first", "second", "third"];
+}
+let [arr1, arr2, arr3] = arr();
+console.log(`firstArr = ${arr1}, secondArr = ${arr2}, thirdArr = ${arr3}`);
+//the thing about destructuring is it allows a variable to have multiple values
+let {sample:samp1, sample:samp2} = {sample:"this is the first sample which is a text"};
+console.log(`samp1 = ${samp1}, samp2 = ${samp2}`);
+</script>
+</body>
+</html>
