@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+	height: 100%;
+	margin: 0;
+	width: 100%;
+	position: relative !important;
+}
+@media screen and (max-width: 474px){
+	div.background{
+		border-radius: 50%;
+		background-color: #424242;
+		height: 255px;
+		width: 255px;
+		-moz-transition: border-radius .1s, width .2s, height .2s, transform .2s, box-shadow 0s, z-index 0s, position 0s;
+	}
+	img.pic{
+		border-radius: 50%;
+		width: 100%;
+		height: 250px;
+		transition: border-radius .1s;
+	}
+	img.pic.stop{
+		border-radius: 0px;
+		opacity: 10 !important;
+	}
+	div.background.show{
+		z-index: 9999999 !important;
+		/*position: absolute;*/
+		border-radius: 0px;
+		background-color: #424242;
+		height: 100%;
+		width: 100%;
+		transform: translateY(75px);
+		box-shadow: 0px 5px 3px #757575;
+		opacity: .9;
+	}
+}
+</style>
+</head>
+<body>
+	<div class="background" id="show">
+	<img class="pic" src="http://entertainment.ie//images_content/rectangle/620x372/E-T.jpg" id="pic">
+	</div>
+	<div>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+	<script>
+	let click = document.getElementById("show");
+	let pic = document.getElementById("pic");
+	click.addEventListener('click', () => {
+		click.classList.toggle("show");
+		pic.classList.toggle("stop")
+	});
+	</script>
+</body>
+</html>
