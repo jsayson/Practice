@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body{
+	position: relative;
+	width: 100%;
+	margin: 0px;
+}
+#click{
+	display: none;
+	cursor: pointer;
+}
+ul.menu{
+	background-color: #4DB6AC;
+}
+@media screen and (max-width: 479px){
+#click{
+	display: block;
+}
+nav{
+	 display: inline;
+}
+ul.menu{
+	position: absolute;
+	background-color: #424242;
+	width: 60%;
+	height: 100%;
+	transform: translateX(-9999999px);
+	transition: transform 1.5s, z-index;
+}
+ul.menu.show{
+	top: 0; 
+	color: #FFF;
+	z-index: 999999999;
+	transform: translateY(0px);
+	box-shadow: 3px 1px 3px #757575;
+}
+}
+</style>
+</head>
+<body>
+	<nav class="nav">
+	<button type="submit" id="click"><span class="fa fa-bars"></span></button>
+		<ul class="menu" id="menu">
+			<li>
+				section1
+			</li>
+			<li>
+				section2
+			</li>
+			<li>
+				section3
+			</li>
+			<li>
+				section4
+			</li>
+		</ul>
+	</nav>
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	<script>
+	let click = document.getElementById("click");
+	let menu = document.getElementById("menu");
+	click.addEventListener('click', () => {
+		menu.classList.toggle("show");
+	});
+	</script>
+</body>
+</html>
