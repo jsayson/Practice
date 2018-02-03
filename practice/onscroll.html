@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+div.ani{
+	position: fixed;
+	height: 100px;
+	width: 100px;
+	background-color: #009688;
+	transition: height 1s, width 1s, transform 1s, border-top-right-radius 1s, border-bottom-left-radius 1s;
+}
+div.ani.scroll{
+	height: 200px;
+	width: 200px;
+	transform: rotateZ(90deg);
+	border-top-right-radius: 50%;
+	border-bottom-left-radius: 50%;
+}
+body{
+	height: 1500px;
+}
+</style>
+</head>
+<body>
+<div class="ani" id="ani">
+</div>
+<script>
+let myDiv = document.getElementById("ani");
+window.addEventListener("scroll", () => {
+	document.body.scrollTop > 50 || document.documentElement.scrollTop > 50 ? myDiv.classList.add("scroll") : myDiv.classList.remove("scroll");
+});
+</script>
+</body>
+</html>
