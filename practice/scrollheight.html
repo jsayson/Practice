@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+	height: 1500px;
+}
+div.show{
+	display: block;
+	position: fixed;
+	top: 1;
+	background-color: #9C27B0;
+	height: 100px;
+	width: 200px;
+	transition: display 1s;
+}
+div.show.now{
+	display: none;
+}
+</style>
+</head>
+<body>
+	<div class="show" id="show">
+	</div>
+<script>
+let show = document.getElementById("show");
+var arr = [];
+	/*console.log(document.body.height);*/
+window.addEventListener("scroll", () =>{
+	let a = document.documentElement.scrollTop;
+	console.log(a+"  "+arr[arr.length-1]);	
+	a > arr[arr.length-1] ? show.classList.add("now") : show.classList.remove("now");
+	arr.push(a);
+	//console.log(arr[arr.length-1]);
+}); 
+</script>
+</body>
+</html>
