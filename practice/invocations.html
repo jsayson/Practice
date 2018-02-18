@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta author="jm">
+</head>
+<body>
+	<script>
+		//This is a function invocation 
+		let fun = ()=>{
+			console.log('hello this is the function invocation being called');	
+		}
+		fun();
+		// //another example, since javascript treats functions like every other value, so it can be assigned to a variable
+		let fun1 = {
+			fun : ()=>{
+				console.log('this is a function being invoked from an object that is assigned to a variable');
+			}
+		}
+		let cFun1 = fun1.fun;
+		cFun1();
+
+		//Contructor invocation patterns functions that is assigned to a new keyword is a function
+		function conF(){
+			this.castF = ()=>{
+				console.log('this is a contructor being called');
+			};
+		};
+		var newCF = new conF();
+		//newCf.castF();
+
+		//invocation patterns using call
+		let addToSetX = (a, b) =>{
+			console.log(this.obj1['x']);
+			let show = this.obj1['x'] + a + b;
+			console.log(show);
+		};
+		var obj1 = {x : 1, y : 2};
+		addToSetX.call(obj1, 3, 1);
+		
+		//Binding functions
+		function add(x, y){
+			console.log('this is the total sum between the binded result from the object comp and the params of add function '+ (this.result += x + y));
+		}
+		var comp = {result: 0};
+		let bAdd = add.bind(comp);
+		bAdd(1, 2);
+		var boundedAddPlusTwo = add.bind(comp, 2);
+		boundedAddPlusTwo(4);
+		var obj = { boundedPlusTwo: boundedAddPlusTwo };
+		obj.boundedPlusTwo(4);		
+	</script>
+</body>
+</html>
