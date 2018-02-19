@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta author="jm">
+</head>
+<body>
+	<script>
+	//this is a class in ES5
+		let class1 = class class1{
+			constructor(x, y){
+				this.x = x;
+				this.y = y;
+			}
+			cClassA(){
+				console.log('Hello World!');
+				return this.cClassB();
+			}
+			cClassB(){
+				console.log('Hello World Again!');
+				return (this.x + this.y);
+			}
+		}
+
+		let square = new class1(10, 10);
+		console.log(square.cClassA());
+		
+	//also the same with the classes above
+		function fun1(a, b){
+			this.a = a;
+			this.b = b;
+		console.log(this); 
+			this.funA = ()=>{
+				return this.funB();
+			}
+			this.funB = ()=>{
+				return this.a + this.b;
+			}
+		}
+		// fun1(1,2);
+		let rect = new fun1(1,2);
+		console.log(rect.funA());
+	</script>
+</body>
+</html>
