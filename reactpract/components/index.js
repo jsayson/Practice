@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+
+//components
+import FirstClass from './components/feb22react.js';
 
 /*class Helloworld extends React.Component{
 	render(){
@@ -24,10 +27,20 @@ const names = {
 	lastName: 'light'
 };
 
-const show = 'Hello to you, '+ name(names);
+//const show = 'Hello to you, '+ name(names);
 //is the same as this method
-/*
-const show = (<h1>Hello to you, {name(names)}</h1>);
-*/
 
-ReactDOM.render(<h1>{show}</h1>, document.getElementById('root'));
+const show = (<h1>Hello to you, {name(names)}</h1>);
+
+
+class Show extends Component{
+	render(){
+		return (<div>
+				<FirstClass />
+				{show}
+				</div>
+			);
+	}
+}
+
+ReactDOM.render(<Show />, document.getElementById('root'));
