@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 
 //components
 import FirstClass from './components/feb22react.js';
+import SecondClass from './components/feb23react.js';
+import ThirdClass from './components/feb24react.js';
+import Fourth from './components/feb25react.js';
 
 /*class Helloworld extends React.Component{
 	render(){
@@ -30,7 +33,7 @@ const names = {
 //const show = 'Hello to you, '+ name(names);
 //is the same as this method
 
-const show = (<h1>Hello to you, {name(names)}</h1>);
+const show = (<h1 id='name'>Hello to you, {name(names)}</h1>);
 
 
 class Show extends Component{
@@ -38,6 +41,9 @@ class Show extends Component{
 		return (<div>
 				<FirstClass />
 				{show}
+				<SecondClass />
+				<ThirdClass />
+				<Fourth />
 				</div>
 			);
 	}
