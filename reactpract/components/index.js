@@ -6,6 +6,7 @@ import FirstClass from './components/feb22react.js';
 import SecondClass from './components/feb23react.js';
 import ThirdClass from './components/feb24react.js';
 import Fourth from './components/feb25react.js';
+import Fifth from './components/feb26react.js';
 
 /*class Helloworld extends React.Component{
 	render(){
@@ -44,6 +45,7 @@ class Show extends Component{
 				<SecondClass />
 				<ThirdClass />
 				<Fourth />
+				<Fifth />
 				</div>
 			);
 	}
