@@ -13,12 +13,12 @@ class Clock extends React.Component{
 			date: new Date()
 		});
 	}
-
-	componentMount(){
+	//componentDidMount is a reference from reactDOM;
+	componentDidMount(){
 		this.timerID = setInterval(()=>this.tick(), 1000);
 	}
-
-	componentUnmount(){
+	//componentWillUnmout is a reference from ReactDOM;
+	componentWillUnmount(){
 		clearInterval(this.timerID);
 	}
 
