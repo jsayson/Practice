@@ -8,6 +8,7 @@ import ThirdClass from './components/feb24react.js';
 import Fourth from './components/feb25react.js';
 import Fifth from './components/feb26react.js';
 import Run from './components/feb27react.js';
+import Clicker from './components/feb28react.js';
 
 /*class Helloworld extends React.Component{
 	render(){
@@ -48,6 +49,7 @@ class Show extends Component{
 				<Fourth />
 				<Fifth />
 				<Run />
+				<Clicker />
 				</div>
 			);
 	}
