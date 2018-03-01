@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 //components
-import FirstClass from './components/feb22react.js';
-import SecondClass from './components/feb23react.js';
-import ThirdClass from './components/feb24react.js';
-import Fourth from './components/feb25react.js';
-import Fifth from './components/feb26react.js';
-import Run from './components/feb27react.js';
-import Toggle from './components/feb28react.js';
+//import FirstClass from './components/feb22react.js';
+//import SecondClass from './components/feb23react.js';
+//import ThirdClass from './components/feb24react.js';
+//import Fourth from './components/feb25react.js';
+//import Fifth from './components/feb26react.js';
+//import Run from './components/feb27react.js';
+//import Toggle from './components/feb28react.js';
+import Condition from './components/mar1react.js';
 
 /*class Helloworld extends React.Component{
 	render(){
@@ -42,14 +43,15 @@ const show = (<h1 id='name'>Hello to you, {name(names)}</h1>);
 class Show extends Component{
 	render(){
 		return (<div>
-				<FirstClass />
-				{show}
-				<SecondClass />
-				<ThirdClass />
-				<Fourth />
-				<Fifth />
-				<Run />
-				<Toggle />
+				{/*<FirstClass />*/}
+				{/*show*/}
+				{/*<SecondClass />*/}
+				{/*<ThirdClass />*/}
+				{/*<Fourth />*/}
+				{/*<Fifth />*/}
+				{/*<Run />*/}
+				{/*<Toggle />*/}
+				<Condition />
 				</div>
 			);
 	}
