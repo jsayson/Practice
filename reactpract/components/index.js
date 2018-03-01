@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom';
 //import Fifth from './components/feb26react.js';
 //import Run from './components/feb27react.js';
 //import Toggle from './components/feb28react.js';
-import Condition from './components/mar1react.js';
+import Answer from './components/mar1react.js';
 
 /*class Helloworld extends React.Component{
 	render(){
@@ -51,7 +51,7 @@ class Show extends Component{
 				{/*<Fifth />*/}
 				{/*<Run />*/}
 				{/*<Toggle />*/}
-				<Condition />
+				<Answer />
 				</div>
 			);
 	}
