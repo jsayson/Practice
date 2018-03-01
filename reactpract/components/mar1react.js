@@ -68,30 +68,45 @@ import React, { Component } from 'react';
 // 		return (<div><Condition /></div>);
 // 	}
 // }
-class Condition extends Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			clicks : 0
-		}
-		this.increaseOne = this.increaseOne.bind(this);
-	}
+// class Condition extends Component{
+// 	constructor(props){
+// 		super(props);
+// 		this.state = {
+// 			clicks : 0
+// 		}
+// 		this.increaseOne = this.increaseOne.bind(this);
+// 	}
 
-	increaseOne(){
-		this.setState({clicks: this.state.clicks+1});
-	}
+// 	increaseOne(){
+// 		this.setState({clicks: this.state.clicks+1});
+// 	}
 
-	render(){ 
-		return (<div>
-			<h1>Say `Hello World` {this.state.clicks} times: {this.state.clicks%2===0 ? 'Even' || 0: 'Odd'}</h1>
-			<button onClick={this.increaseOne}>{this.state.clicks>4 ? 'Add More...' : 'Add One'}</button>
-			</div>);
-	}
+// 	render(){ 
+// 		return (<div>
+// 			<h1>Say `Hello World` {this.state.clicks} times: {this.state.clicks%2===0 ? 'Even' || 0: 'Odd'}</h1>
+// 			<button onClick={this.increaseOne}>{this.state.clicks>4 ? 'Add More...' : 'Add One'}</button>
+// 			</div>);
+// 	}
+// }
+
+// class Answer extends Component{
+// 	render(){
+// 		return <Condition />;
+// 	}
+// }
+
+const Messages = ['React', 'Hello', 'Hi'];
+
+function Condition(props){
+	console.log(props.message);
+	const unreadMessages = props.message;
+	return (<h1>Hello, {unreadMessages.length > 0 ? 'You have ' + unreadMessages.length + ' unread messages' : 'You have no unread messages'}</h1>);
 }
+
 
 class Answer extends Component{
 	render(){
-		return <Condition />;
+		return (<Condition message={Messages}/>);
 	}
 }
 
