@@ -1,73 +1,75 @@
 import React, { Component } from 'react';
 
-function UserGreeting() {
-  	return <h1>Welcome back!</h1>;
-}
+//Handling events
 
-function GuestGreeting() {
- 	return <h1>Please sign up.</h1>;
-}
+// function Clicked(e){
+// 	e.preventDefault();
+// 	console.log('this Button was clicked.');
+// }
 
-function Logout(props){
-	console.log(props)
-	return (<button onClick={props.onClick}>Logout</button>);
-}
+// class Clicker extends Component{
+// 	render(){
+// 		return <button onClick={/*console.log('hello')*/Clicked}>Fire</button>;
+// 	}
+// }
 
-function Greeting(props){
-	console.log(props);
-	const ans = props.ans;
-  	if (ans) {
-    	return <UserGreeting />;
-  	}
-  		return <GuestGreeting />;
-}
-
-function Login(props){
- 	console.log(props);
- 	return (<button onClick={props.onClick}>Login</button>);
-}
-
-class Condition extends Component{
+// class Toggle extends Component{
+// 	constructor(props){
+// 		super(props);
+// 		this.state = {
+// 			isToggleOn: true
+// 		};
+// 		this.handleClick = this.handleClick.bind(this);
+// 	}
+// 	handleClick(){
+// 		console.log(this.state);
+// 		this.setState((prevState) => ({
+// 			isToggleOn: !prevState.isToggleOn
+// 		}));
+// 	}
+// 	render(){
+// 		return (<div><button onClick={this.handleClick}>
+// 		{this.state.isToggleOn ? 'On' : 'Off'}
+// 		</button></div>);
+// 	}
+// }
+class StartWar extends Component{
 	constructor(props){
-		console.log(props);
 		super(props);
 		this.state = {
-			ans: false 
+			firing: false,
+			callGen: true
 		}
-		this.handleLoginClick = this.handleLoginClick.bind(this);
-		this.handleLogoutClick = this.handleLogoutClick.bind(this);
+		console.log(props)
 	}
-
-	handleLoginClick(){
-		this.setState({ans: true});
+	calledGen(){
+		this.setState(this.firing === true ? 'Call' : 'Called');
 	}
-
-	handleLogoutClick(){
-		this.setState({ans: false});
-	}
-
 	render(){
-		const ans = this.state.ans;
-
-		let button = null;
-
-		if(ans){
-			button = (<Logout onClick={this.handleLogoutClick} />);
-		}
-		else{
-			button = (<Login onClick={this.handleLoginClick} /> );
-		}
-
-		return (<div><Greeting ans={ans} />{button}</div>
-    );
+		return <h1>{this.calledGen}</h1>;
 	}
 }
 
-class Answer extends Component{
+class Toggle extends Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			firing : false
+		}
+		//binding is necessary to make this work in our callback	
+		this.firingClick = this.firingClick.bind(this);
+	}
+	firingClick(){
+		this.setState(gunFiring => ({
+			firing: !gunFiring.firing
+		}));
+	}
 	render(){
-		return (<div><Condition /></div>);
+		return (<div><button className='firing' onClick={this.firingClick}>
+			{this.state.firing ? 'Ceasefire' : 'Firing'}
+			</button>
+			<StartWar fire={this.state.firing} /></div>);
 	}
 }
 
-
-export default Answer;
+export default Toggle;
