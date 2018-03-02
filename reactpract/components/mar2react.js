@@ -58,8 +58,10 @@ function Blog(props){
 	// console.log(props);
 	let posts = props.posts;
 	// console.log(props);
-	let blogPost = posts.map((posts)=><BlogPosts key={posts.id} item={posts} id={posts.id}/>);
-	return (<ul>{blogPost}</ul>);
+	// let blogPost = posts.map((posts)=><BlogPosts key={posts.id} item={posts} id={posts.id}/>);
+	// return (<ul>{blogPost}</ul>);
+	// since jsx allows expressions you can use this
+	return (<ul>{posts.map((posts)=><BlogPosts key={posts.id} item={posts} id={posts.id}/>)}</ul>)
 }
 
 const posts = [
