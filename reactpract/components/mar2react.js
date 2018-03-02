@@ -23,14 +23,19 @@ import React, { Component } from 'react';
 // }
 
 function MyLists(props){
-	console.log(props);
+	//console.log(props);
 	let num = props.numbers;
 	//a key is a special attribute that is needed to include in a lists
-	let lists = num.map((num)=><li key={num.toString()}>{num}</li>);
+	let lists = num.map((num, index)=><ListItem key={num.toString()} item={num} />);
 	return (<ul>{lists}</ul>);
 	//so a key acts as an ID for the values that is in a list, it identifies which items has changed, deleted or added
 }
 
+function ListItem(props){
+	console.log(props);
+	return <li>{props.item}</li>;
+}
+	//recommended not to use the indexes for keys cos if the items will change it would have a negative impact on performance and may cause issues on state components
 const numbers = [1,2,3,4,5];
 
 class Lists extends Component{
