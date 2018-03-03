@@ -29,25 +29,59 @@ import React, { Component } from 'react';
 // 	}
 // }
 
+// class MyForm extends Component{
+// 	constructor(props){
+// 		super(props);
+// 		this.state = { value: ''};
+// 		this.handleThisChange = this.handleThisChange.bind(this);
+// 		this.handleThisSubmit = this.handleThisSubmit.bind(this);
+// 	}
+
+// 	handleThisChange(event){
+// 		this.setState({value: event.target.value.charAt(0).toUpperCase()+event.target.value.slice(1)});
+// 	}
+
+// 	handleThisSubmit(event){
+// 		alert('Inserted New Record: '+this.state.value.charAt(0).toUpperCase()+this.state.value.slice(1));
+// 		event.preventDefault();
+// 	}
+
+// 	render(){
+// 		return (<form onSubmit={this.handleThisSubmit}>
+// 			<textarea value={this.state.value} onChange={this.handleThisChange} />
+// 			<input type='submit' value='Submit' />
+// 			<p>{this.state.value}</p>
+// 			</form>);
+// 	}
+// }
 class MyForm extends Component{
 	constructor(props){
 		super(props);
-		this.state = { value: ''};
-		this.handleThisChange = this.handleThisChange.bind(this);
-		this.handleThisSubmit = this.handleThisSubmit.bind(this);
+		this.state = {value: ''}
+	this.handleThisChange = this.handleThisChange.bind(this);
+	this.handleThisSubmit = this.handleThisSubmit.bind(this);
 	}
+
 	handleThisChange(event){
-		this.setState({value: event.target.value.charAt(0).toUpperCase()+event.target.value.slice(1)});
+		this.setState({value: event.target.value});
 	}
+
 	handleThisSubmit(event){
-		alert('Inserted New Record: '+this.state.value.charAt(0).toUpperCase()+this.state.value.slice(1));
+		alert('Obtuse this item: '+this.state.value.charAt(0).toUpperCase()+this.state.value.slice(1));
 		event.preventDefault();
 	}
+
 	render(){
 		return (<form onSubmit={this.handleThisSubmit}>
-			<textarea value={this.state.value} onChange={this.handleThisChange} />
-			<input type='submit' value='Submit' />
-			<p>{this.state.value}</p>
+			<label>Pick an Item:
+			<select value={this.state.value} onChange={this.handleThisChange}>
+				<option value="grapefruit">Grapefruit</option>
+            	<option value="lime">Lime</option>
+            	<option value="coconut">Coconut</option>
+            	<option value="mango">Mango</option>
+			</select>
+			</label>
+			<input type='submit' value="Submit" />
 			</form>);
 	}
 }
