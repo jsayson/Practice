@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<script>
+	//Computed property names 
+	//es 5
+	//inline computation of property names 
+	let i = 0;
+	let a = {
+		['foo'+ ++i]: i,
+		['foo'+ ++i]: i,
+		['foo'+ ++i]: i
+	}
+
+	console.log(a.foo2);
+	// console.log('Hello World');
+	//Second example
+	let description = 'size';
+	let overAllDesc = {
+		[description.charAt(0).toUpperCase()+description.slice(1)]: 12,
+		['Shoe'+ description.charAt(0).toUpperCase()+description.slice(1)]: 6 
+	} 
+	console.log(overAllDesc);
+	</script>
+</body>
+</html>
