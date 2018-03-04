@@ -56,6 +56,7 @@ class Show extends Component{
 				{/*<Answer />*/}
 				{/*<Lists />*/}
 				{/*<Forms />*/}
+				<MultiForm />
 				</div>
 			);
 	}
