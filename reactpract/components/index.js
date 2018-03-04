@@ -11,8 +11,8 @@ import ReactDOM from 'react-dom';
 //import Toggle from './components/feb28react.js';
 //import Answer from './components/mar1react.js';
 //import Lists from './components/mar2react.js';
-import Forms from './components/mar3react.js';
-
+//import Forms from './components/mar3react.js';
+import MultiForm from './components/mar3react.js';
 /*class Helloworld extends React.Component{
 	render(){
 		return <h1>Hello World</h1>;;
@@ -55,7 +55,7 @@ class Show extends Component{
 				{/*<Toggle />*/}
 				{/*<Answer />*/}
 				{/*<Lists />*/}
-				<Forms />
+				{/*<Forms />*/}
 				</div>
 			);
 	}
