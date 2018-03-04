@@ -7,16 +7,21 @@ class MultiForm extends Component{
 			numberOfGuests: 0
 		};
 		this.handleThisInputChange = this.handleThisInputChange.bind(this);
+		this.handleThisInputAccept = this.handleThisInputAccept.bind(this);
 	}
 	handleThisInputChange(event){
-		let value = event.target.type === 'number' ? event.target.value : event.target.checked;
+		let value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
 		// let name = event.target.name;
 		this.setState({
-			[event.target.name] : value
+			[event.target.name]: value
 		});
 	}
+	handleThisInputAccept(event){
+		alert('The numbers of guest : '+this.state.numberOfGuests+' and '+(this.state.goingTo===true ? 'will' : 'wil not')+' go.');
+		event.preventDefault();
+	}
 	render(){
-		return (<form>
+		return (<form onSubmit={this.handleThisInputAccept} >
 			<label>No. of Going:
 			<input type='checkbox' name='goingTo' checked={this.state.goingTo} onChange={this.handleThisInputChange} />
 			</label>
@@ -25,6 +30,7 @@ class MultiForm extends Component{
 			Number of Guests:
 			<input type='number' name='numberOfGuests' value={this.state.numberOfGuests} onChange={this.handleThisInputChange} />
 			</label>
+			<input type='submit' value='Submit' />
 			</form>);
 	}
 }
