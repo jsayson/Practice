@@ -12,7 +12,9 @@ import ReactDOM from 'react-dom';
 //import Answer from './components/mar1react.js';
 //import Lists from './components/mar2react.js';
 //import Forms from './components/mar3react.js';
-import MultiForm from './components/mar3react.js';
+//import MultiForm from './components/mar4react.js';
+import LiftingState from './components/mar5react.js';
+
 /*class Helloworld extends React.Component{
 	render(){
 		return <h1>Hello World</h1>;;
@@ -56,7 +58,8 @@ class Show extends Component{
 				{/*<Answer />*/}
 				{/*<Lists />*/}
 				{/*<Forms />*/}
-				<MultiForm />
+				{/*<MultiForm />*/}
+				<LiftingState />
 				</div>
 			);
 	}
