@@ -4,6 +4,7 @@ class Search extends Component{
 	render(){
 		return(<form>
 			<input type='search' placeholder='Search' />
+			<br />
 			<label>
 			<input type='checkbox' />
 			Only show products in stock
@@ -12,11 +13,19 @@ class Search extends Component{
 	}
 }
 
+function GetLists(props){
+	//console.log(props);
+	let lists = props.list;
+	let key = ((lists[0].name.charAt(0))+(lists[0].name.length)+(lists[0].name.charAt(lists[0].name.length-1))).toString();
+	// console.log(key);
+	//return <h1>Hello to you</h1>;
+	return (<table><tr><th>Name</th><th>Price</th></tr>{lists.map((lists)=><MyLists key={key} id={key} name={lists.name} price={lists.price} />)}</table>)
+}
+
 function MyLists(props){
 	// console.log(props);
-	let lists = props.list;
-	console.log(lists);
-	return <h1>Hello World</h1>;
+	let lists = props;
+	return (<tr id={lists.id}><td>{props.name}: </td><td>{props.price}</td></tr>);
 }
 
 const Lists = [
@@ -32,7 +41,7 @@ class MyUI extends Component{
 	render(){
 		return (<div>
 			<Search />
-			<MyLists list={Lists}/>
+			<GetLists list={Lists}/>
 			</div>);
 	}
 }
