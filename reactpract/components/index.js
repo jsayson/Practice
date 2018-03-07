@@ -14,7 +14,8 @@ import ReactDOM from 'react-dom';
 //import Forms from './components/mar3react.js';
 //import MultiForm from './components/mar4react.js';
 //import LiftingState from './components/mar5react.js';
-import Containment from './components/mar6react.js';
+//import Containment from './components/mar6react.js';
+import MyUI from './components/mar7react.js';
 
 /*class Helloworld extends React.Component{
 	render(){
@@ -61,7 +62,8 @@ class Show extends Component{
 				{/*<Forms />*/}
 				{/*<MultiForm />*/}
 				{/*<LiftingState />*/}
-				<Containment />
+				{/*<Containment />*/}
+				<MyUI />
 				</div>
 			);
 	}
