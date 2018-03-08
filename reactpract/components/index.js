@@ -15,7 +15,8 @@ import ReactDOM from 'react-dom';
 //import MultiForm from './components/mar4react.js';
 //import LiftingState from './components/mar5react.js';
 //import Containment from './components/mar6react.js';
-import MyUI from './components/mar7react.js';
+//import MyUI from './components/mar7react.js';
+import MyUI from './components/mar8react.js';
 
 /*class Helloworld extends React.Component{
 	render(){
