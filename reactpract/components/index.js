@@ -18,7 +18,8 @@ import ReactDOM from 'react-dom';
 //import MyUI from './components/mar7react.js';
 //import MyUI from './components/mar8react.js';
 //import ReturnColor from './components/mar9react.js';
-import Try from './components/mar10react.js';
+//import Try from './components/mar10react.js';
+import Answer from './components/mar11react.js';
 
 /*class Helloworld extends React.Component{
 	render(){
@@ -66,7 +67,8 @@ class Show extends Component{
 				{/*<MultiForm />*/}
 				{/*<LiftingState />*/}
 				{/*<Containment />*/}
-				<Try />
+				{/*<Try />*/}
+				<Answer />
 				</div>
 			);
 	}
