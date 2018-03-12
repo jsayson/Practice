@@ -28,4 +28,12 @@ TypeChecking.propTypes = {
   }
 };
 
+//@flow
+// function TypeChecking(res) /* : string */ {
+// 	console.log(res.length);
+// 	return (<h1>${res.length}</h1>);
+// }
+
+//TypeChecking('Hello');
+
 export default TypeChecking;
