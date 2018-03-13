@@ -20,7 +20,8 @@ import ReactDOM from 'react-dom';
 //import ReturnColor from './components/mar9react.js';
 //import Try from './components/mar10react.js';
 //import Answer from './components/mar11react.js';
-import TypeChecking from './components/mar12react.js';
+//import TypeChecking from './components/mar12react.js';
+import MyFlow from './components/mar13react.js';
 
 /*class Helloworld extends React.Component{
 	render(){
@@ -70,7 +71,8 @@ class Show extends Component{
 				{/*<Containment />*/}
 				{/*<Try />*/}
 				{/*<Answer />*/}
-				<TypeChecking /> 
+				{/*<TypeChecking /> */}
+				<MyFlow />
 				</div>
 			);
 	}
