@@ -13,19 +13,37 @@ import '../css/mar14.css';
 // 	}
 // }
 
+// class MComponent extends Component{
+// 	constructor(props){
+// 		super(props);
+// 		this.focusThisText = this.focusThisText.bind(this);
+// 	}
+
+// 	focusThisText(){
+// 		let myInput = document.getElementById('input');
+// 		myInput.classList['add']('effect');
+// 	}
+
+// 	render(){
+// 		return (<div><input type='text' id='input' onClick={this.focusThisText} className='add' /></div>)
+// 	}
+// }
+
 class MComponent extends Component{
 	constructor(props){
 		super(props);
 		this.focusThisText = this.focusThisText.bind(this);
 	}
-
 	focusThisText(){
 		let myInput = document.getElementById('input');
-		myInput.classList['add']('effect');
+		myInput.classList['add']('effect');	
+		this.textInput.focus();
 	}
-
 	render(){
-		return (<div><input type='text' id='input' onClick={this.focusThisText} className='add' /></div>)
+		return(<div>
+			<input type='text' id='input' className='add' ref={(input)=>{this.textInput = input}} />
+			<input value='Focus the text input' type='submit' onClick={this.focusThisText} />
+			</div>);
 	}
 }
 
