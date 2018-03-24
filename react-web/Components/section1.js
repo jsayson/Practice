@@ -9,14 +9,14 @@ const img = {
 	width: '100px'
 }
 
-const social = [
-	{name: 'codepen', className: 'fa fa-codepen'},
-	{name: 'freecodecamp', className: 'fa fa-free-code-camp'},
-	{name: 'github', className: 'fa fa-github'},
-	{name: 'instagram', className: 'fa fa-instagram'},
-	{name: 'linkedin', className: 'fa fa-linkedin'},
-	{name: 'twitter', className: 'fa fa-twitter'}
-];
+// const social = [
+// 	{name: 'codepen', className: 'fa fa-codepen'},
+// 	{name: 'freecodecamp', className: 'fa fa-free-code-camp'},
+// 	{name: 'github', className: 'fa fa-github'},
+// 	{name: 'instagram', className: 'fa fa-instagram'},
+// 	{name: 'linkedin', className: 'fa fa-linkedin'},
+// 	{name: 'twitter', className: 'fa fa-twitter'}
+// ];
 
 // class SocialMed extends Component{
 // 	render(){
@@ -40,9 +40,11 @@ class SocialMed extends Component{
 		// 	// console.log(val.name);
 		// 	<Row key={index} name={index} />
 		// })}</ul>);
-		console.log(this.props);
-		let res = this.props.social; 
-		return <p></p>
+		console.log(this.props.social);
+		let res = this.props.social.map((res,index)=>{
+			return <a key={index} className={res.className} href="###"></a>
+		})
+		return (<div>{res}</div>);
 	}
 }
 
@@ -59,7 +61,7 @@ class About extends Component{
 	render(){
 		const val = this.props.info;
 		return (<div><div><img src={val.imgSrc} alt={val.alt} height={val.height} width={val.width}/></div>
-			<div className='intro'><h1>Introduction</h1></div>
+			<div className='intro'><h1>The Name is Jm</h1></div>
 			<div className='links'><SocialMed social={magic}/></div>
 			</div>)	
 	}
