@@ -10,28 +10,59 @@ import weather from '../pic/weather.png';
 
 const creations = [
 {
-	imgSrc: calc,
-},
-{
-	imgSrc: udacity,
-},
-{
-	imgSrc: twitch,
-},
-{
 	imgSrc: search,
-},
-{
-	imgSrc: generate,
+	name: 'search'
 },
 {
 	imgSrc: weather,
+	name: 'weather'
+},
+{
+	imgSrc: calc,
+	name: 'calc'
+},
+{
+	imgSrc: udacity,
+	name: 'udacity'
+},
+{
+	imgSrc: twitch,
+	name: 'twitch'
+},
+{
+	imgSrc: generate,
+	name: 'generate'
 }
 ];
 
+function HandleImages(props){
+	//console.log(props);
+	let className = 'hide';
+	if(props.id<=1){
+		return (<div><img src={props.img.imgSrc} alt={props.img.name} id={props.id} /></div>);	
+	}
+	else{
+		return (<div className={className}><img src={props.img.imgSrc} alt={props.img.name} id={props.id} /></div>);
+	}
+}
+
 class Port extends Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			hide: true
+		}
+		this.isHidden = this.isHidden.bind(this);
+	}
+	isHidden(){
+		console.log('hello');
+	}
 	render(){
-		return <h1>Hello World</h1>
+		let img = this.props.images;
+		return (<div>
+			<div>{img.map((res, index)=><HandleImages img={res} key={index} id={index} />)}</div>
+			<input type='submit' value='Expand' onClick={this.isHidden}/>
+			</div>)
 	}
 }
 
