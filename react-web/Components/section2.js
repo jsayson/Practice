@@ -36,8 +36,10 @@ const creations = [
 ];
 
 function HandleImages(props){
-	//console.log(props);
-	let className = 'hide';
+	//console.log(props.status);
+	let status = props.status === 'Show' ? 'hide' : 'show'; 
+	let className = status;
+	//console.log(className);
 	if(props.id<=1){
 		return (<div><img src={props.img.imgSrc} alt={props.img.name} id={props.id} /></div>);	
 	}
@@ -54,14 +56,19 @@ class Port extends Component{
 		}
 		this.isHidden = this.isHidden.bind(this);
 	}
-	isHidden(){
-		console.log('hello');
+	isHidden(e){
+		this.setState({
+			hide: !this.state.hide
+		})
+		e.preventDefault();
+		//console.log(this.state.hide);
 	}
 	render(){
 		let img = this.props.images;
+		let status = this.state.hide === true ? 'Show' : 'Show Less';
 		return (<div>
-			<div>{img.map((res, index)=><HandleImages img={res} key={index} id={index} />)}</div>
-			<input type='submit' value='Expand' onClick={this.isHidden}/>
+			<div>{img.map((res, index)=><HandleImages img={res} key={index} id={index} status={status}/>)}</div>
+			<input type='submit' value={status} onClick={this.isHidden}/>
 			</div>)
 	}
 }
