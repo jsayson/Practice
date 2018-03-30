@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 // import ScrollableAnchor from 'react-scrollable-anchor';
 // import { configureAnchors } from 'react-scrollable-anchor';
 
-import Scrollspy from 'react-scrollspy';
+//import Scrollspy from 'react-scrollspy';
 
 //CSS
 import './Css/index.css';
@@ -20,18 +20,23 @@ class Sspy extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			current: 'current',
-			holder: []
+			handler: true
+			}
+		this.handleList = this.handleList.bind(this);
 		}
-		this.checker = this.checker.bind(this);
-	}
-	checker(){
-		console.log('hello');
-	}
+	handleList(e){
+		this.setState({
+			handler: !this.state.handler
+		});
+		e.preventDefault();
+		}
 	render(){
 		//console.log(this.props);
 		return (<nav>
-			<ul>
+			<div id='head'>
+			<button onClick={this.handleList}><span className='fa fa-bars'></span></button>
+			</div>
+			<ul className={this.state.handler===true ? 'hide' : 'show'}>
 			<li><a href={"#"+this.props.items[0]} onClick={this.checker}>About</a></li>
 			<li><a href={"#"+this.props.items[1]} onClick={this.checker}>Projects</a></li>
 			<li><a href={"#"+this.props.items[2]} onClick={this.checker}>Contacts</a></li>
