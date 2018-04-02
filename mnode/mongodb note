@@ -1,0 +1,34 @@
+
+@json
+"keys" must be strings :<-- must be separated with a colon (values);
+~~> "key" : "values",
+
+@bson (bson)=>{return "binary json";}
+bson = "binary json"
+
+
+@crud
+create, read, update, delete
+
+terminal
+mongo --> help
+
+@terminal
+> help
+> show dbs(to show available databases)
+> use <database name>
+
+.find() to view or read records in a database
+.pretty() easier to look
+eg.( db.<dbname>.find().pretty() );
+
+using specific .find() query
+eg.( db.<dbname>.find({"key":"value"}) )
+
+you can use var in shell 
+eg.(var varName = db.<dbname>.find() )
+@note you can only use this once
+
+using cursors
+.hasNext()//returns next document if it is true then use .next()
+
