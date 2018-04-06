@@ -1,0 +1,6 @@
+<form action='/usernames' method='POST'>
+{% for items in usernames %}
+	<input type='radio' name='username' value='{{items.name}}'> {{items.name}}<br>
+{% endfor %}
+<input type='submit' value='submit'>
+</form>

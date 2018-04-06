@@ -1,3 +1,3 @@
-{% for user in usernames %}
-<li>{{user.name}}</li>
+{% for user in username %}
+<li>{{user['_id']}}, {{user.name}}</li>
 {% endfor %}
