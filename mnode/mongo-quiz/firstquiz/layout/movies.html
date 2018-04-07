@@ -1,0 +1,33 @@
+
+<head>
+<style>
+	body{
+		max-width: 100%;
+	}
+	div#content{
+		max-width: 100%;
+		border-radius: 5px;
+		border: 1px solid #000;
+		padding: 20px;
+	}
+	a{
+		text-decoration: none;
+		color: #000;
+	}
+	a:hover{
+		color: blue;	
+	}
+</style>
+</head>
+<body>
+<div>
+	<h1>Movies</h1>
+	{% for items in records %}
+	<div id='content'>
+	<p style='font-weight:bold;'>Title: {{items.title}}</p>
+	<p>Year: {{items.year}}</p>
+	<p>Link: <a href='{{items.imdb}}'>{{items.title}}</a></p>
+	</div>
+	{% endfor %}
+</div>
+</body>
