@@ -44,12 +44,14 @@ MongoClient.connect('mongodb://localhost:27017/try', (err, db)=>{
 		let title = req.body.title;
 		let year = req.body.year;
 		let imdb = req.body.imdb;
-		if(title == 'undefined' || year == 'undefined' || imdb == 'undefined'){
+		let r_imdb = req.body.r_imdb;
+		let r_tomato = req.body.r_tomato;
+		if(typeof title == 'undefined' || typeof year == 'undefined' || typeof 	imdb == 'undefined' || typeof r_imdb == 'undefined' || typeof r_tomato == 'undefined'){
 			next('One or more input is empty');
 		}
 		else{	
-			dbc.collection('movies').insertOne({'title': title, 'year': year, 'imdb': imdb});
-			res.send('Title: '+title+'\nYear: '+year+'\nIMDB: '+imdb); 
+			dbc.collection('movies').insertOne({'title': title, 'year': year, 'rating': {'imdb': r_imdb, 'tomato': r_tomato}, 'imdb': imdb});
+			res.send('Title: '+title+'\nYear: '+year+'\nIMDB: '+imdb);
 			console.log('One row affected');
 		}
 		
