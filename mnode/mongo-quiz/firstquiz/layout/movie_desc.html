@@ -1,0 +1,10 @@
+<div>
+{% for item in record %}
+	<h1>{{item.title}} <span style='font-size:13px;cursor:pointer'>(<u>{{item.year}}</u>)</span></h1> 
+	<div id='rating' style='text-align:right;font-size:12px'>
+	<strong>Ratings</strong>
+	<p>Tomato: {{item.rating.tomato}}</p>
+	<p>Imdb: {{item.rating.imdb}}</p>
+	</div>
+{% endfor %}
+</div>
