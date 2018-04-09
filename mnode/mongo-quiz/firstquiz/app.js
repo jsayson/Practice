@@ -3,6 +3,7 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient;
 const engines = require('consolidate');
 const bodyParser = require('body-parser');
+const ObjectId = require('mongodb').ObjectID;
 
 app.engine('html', engines.nunjucks);
 app.set('view engine', 'html');
@@ -57,9 +58,18 @@ MongoClient.connect('mongodb://localhost:27017/try', (err, db)=>{
 		
 	});
 	
-	app.get('/Movies', (req, res)=>{
+	app.get('/:Movies', (req, res)=>{
 		dbc.collection('movies').find({}).toArray((err, rec)=>{
 			res.render('movies', {'records': rec});
+		});
+	});
+	
+	app.get('/Movies/Desc', (req, res)=>{
+		let id=req.query.desc;
+		dbc.collection('movies').find({'_id': ObjectId(id)}).toArray((err, rec)=>{
+			console.log(rec);
+
+			res.render('movie_desc', {'record': rec});			
 		});
 	});
 	
