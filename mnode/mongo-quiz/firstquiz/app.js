@@ -58,19 +58,25 @@ MongoClient.connect('mongodb://localhost:27017/try', (err, db)=>{
 		
 	});
 	
-	app.get('/:Movies', (req, res)=>{
+	app.get('/Movies', (req, res)=>{
 		dbc.collection('movies').find({}).toArray((err, rec)=>{
 			res.render('movies', {'records': rec});
 		});
 	});
 	
-	app.get('/Movies/Desc', (req, res)=>{
+	app.get('/Movies/:Desc', (req, res, next)=>{
 		let id=req.query.desc;
+		let param = req.params.Desc;
+		if((id === null && param === true) || id===''){
+			next('Not Found');		
+		}
+		else{
+			console.log('params: '+req.params);
+			console.log('query: '+req.query);
 		dbc.collection('movies').find({'_id': ObjectId(id)}).toArray((err, rec)=>{
-			console.log(rec);
-
+			//console.log(rec);
 			res.render('movie_desc', {'record': rec});			
-		});
+		});}
 	});
 	
 	const server = app.listen(8000, ()=>{
