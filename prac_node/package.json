@@ -1,0 +1,22 @@
+{
+  "name": "reqritw",
+  "version": "1.0.0",
+  "description": "rewrite",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongodb": "^3.0.6",
+    "consolidate": "^0.15.1",
+    "nunjucks": "3.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
