@@ -1,61 +1,65 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+// import axios from 'axios';
 
 class App extends React.Component{
 	constructor(props){
 		super(props);
-		// this.state = {
-		// 	data: {
-		// 		title: '',
-		// 		year: '',
-		// 		imdbLink: '',
-		// 		imdb: '',
-		// 		tomato: ''
-		// 	}
-		// }
+		this.state = {
+			title: ''
+		};
+		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-
-	handleSubmit(event){
-		const data = new FormData();
-		fetch('/api/submitted', {
-			method: 'POST',
-			body: data
-		})/*.then(res=>res.json()).then(results=>{this.setState({data: data})})*/;
-		console.log(data);
-		event.preventDefault();
+	handleChange(e){
+        const state = this.state
+        state[e.target.name] = e.target.value;
+        this.setState(state);
 	}
-
+	handleSubmit(event){
+		event.preventDefault();
+		fetch('/submitted', {
+			method: 'POST',
+			body: JSON.stringify({
+		      title: this.state.title
+		    }),
+		    headers: {"Content-Type": "application/json"}
+		  })
+	}
 	render(){
-		return (<div>
-			<form onSubmit={this.handleSubmit}>
-			<input type='text' placeholder='Title' name='title' /><br/>
-			<input type='text'  placeholder='Year' name='year' /><br/>
-			<input type='text'  placeholder='IMDB' name='imdb-link' /><br/>
-			<label>Rating<br/>
-			<input type='text'  placeholder='IMDB' name='imdb' /><br/>
-			<input type='text' placeholder='Tomato' name='tomato' /><br/>
-			</label>
-			<input type='submit' value='submit' />
+		return (
+			<form onSubmit={this.handleSubmit} name='form'>
+			<input type='text' name='title' placeholder='Title' onChange={this.handleChange}/>
+			<input type='button' value='submit' />
 			</form>
-			</div>);
+			);
 	}
 }
 
-// class App extends Component{
+// class App extends React.Component{
 // 	constructor(props){
 // 		super(props);
 // 		this.state = {
-// 			items: []
+// 			items: ''
 // 		}
+// 		this.handleSubmit = this.handleSubmit.bind(this);
 // 	}
-// 	componentDidMount(){
-// 		fetch('/api/movies').then(res=>res.json()).then(results=>this.setState({items: results}));
+// 	handleSubmit(e){
+// 		e.preventDefault();
+// 		let data = new FormData(e.target)
+// 		fetch('/submitted', {
+// 			method: 'post',
+// 			body: JSON.stringify(data),
+// 			headers: {"Content-Type": "application/json"}
+// 		});
 // 	}
 // 	render(){
-// 		console.log(this.state.items);
-// 		return (<div>
-// 			Hello WOrld</div>)
+// 		return (
+// 			<form onSubmit={this.handleSubmit}>
+// 			<input type='text' placeholder='title' name='title' />
+// 			<input type='button' value='submit' />
+// 			</form>
+// 			);
 // 	}
 // }
 
