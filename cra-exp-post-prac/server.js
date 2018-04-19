@@ -3,9 +3,8 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({
-    extended:true
-}));
+app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.json())
 
 //dburl
 const dbUrl = require('./database');
