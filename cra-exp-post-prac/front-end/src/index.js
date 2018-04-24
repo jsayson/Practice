@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+// import Search from './Components/search.js';
+import Movies from './Components/movies.js';
+import MovieDesc from './Components/movie_desc.js';
 
 class App extends React.Component{
   constructor(props){
@@ -18,7 +23,7 @@ class App extends React.Component{
     }
     console.log(dataItems);
     fetch('/api/submitted', {
-      method: 'POST',
+      method: 'post',
       body: JSON.stringify(dataItems),
       headers: {'Content-Type': 'application/json'}
     });
@@ -32,12 +37,12 @@ class App extends React.Component{
   render(){
     return (
       <form onSubmit={this.handleSubmit} onLoad={this.handleSubmit}>
-      <input type='text' name='title' placeholder='Title' id='inputs'/><br/>
-      <input type='text' name='year' placeholder='Year' id='inputs'/><br/>
-      <input type='text' name='imdbLink' placeholder='Imdb Link' id='inputs'/><br/>
+      <input type='search' name='title' placeholder='Title' id='inputs' required/><br/>
+      <input type='text' name='year' placeholder='Year' id='inputs' required/><br/>
+      <input type='text' name='imdbLink' placeholder='Imdb Link' id='inputs' required/><br/>
       <label>Rating<br />
-      <input type='text' name='r_tomato' placeholder='Tomato' id='inputs'/><br/>
-      <input type='text' name='r_imdb' placeholder='Imdb' id='inputs'/><br/>
+      <input type='text' name='r_tomato' placeholder='Tomato' id='inputs' required/><br/>
+      <input type='text' name='r_imdb' placeholder='Imdb' id='inputs' required/><br/>
       </label>
       <input type='submit' value='submit' />
       </form>
@@ -45,4 +50,16 @@ class App extends React.Component{
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class View extends React.Component{
+  render(){
+  return (<Router>
+    <div>
+    <Route exact path='/' component={App} />
+    <Route exact path='/movies' component={Movies} />
+    <Route exact path='/movies/:id' component={MovieDesc} />
+    </div>
+    </Router>);
+  }
+}
+
+ReactDOM.render(<View />, document.getElementById('root'));
