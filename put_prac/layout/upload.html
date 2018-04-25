@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	body{
+		width: 100%;
+		margin: none !important;
+	}
+	@media screen and (max-width: 379px){
+		body{
+			width: 100%;
+		}
+		textarea{
+			resize: vertical;
+  			width: 90%;
+  			height: 100px;
+		}
+		input#title{
+			height: 20px !important;
+			width: 90%;
+		}
+		input{
+			height: 30px;
+			width: 70%;
+		} 
+	}
+</style>
+</head>
+<body>
+<form method='post' action='/upload'>
+	<label><h3>Title</h3>
+	<input type='text' name='title' placeholder='Title' id='title'><br>
+	</label><br>
+	<div style='width: 100%'>
+	<label>Description
+	<textarea rows='10' name='description'>
+	</textarea>
+	</label>
+	</div><br>
+	<input type='submit' value='submit'>
+</form>
+</body>
+</html>
