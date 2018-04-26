@@ -1,0 +1,7 @@
+{% for item in docu %}
+<div>
+	<p>Title: <strong>{{item.title}}</strong></p>
+	<p>Description: {{item.description}}</p>
+	<a href='/edit?id={{item['_id']}}'>Edit Here</a>
+</div>
+{% endfor %}

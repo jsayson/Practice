@@ -1,0 +1,35 @@
+{% for item in item %}
+<div>
+	<p id='title'><strong>{{item.title}}</strong></p>
+	<input type='text' style='display:none' name='title'><br>
+	<p>{{item.description}}</p>
+	<textarea name='desc'>{{item.description}}</textarea><br>
+	<a href='/edit'><button>Submit</button></a>
+</div>
+{% endfor %}
+<script>
+let title = document.getElementById('title');
+// console.log(title);
+title.addEventListener('click', ()=>{
+	title.style.display= 'none';
+	let titleEdit = document.querySelectorAll('input');
+	titleEdit[0].value = title.innerText;
+	titleEdit[0].style.display= 'block';
+	titleEdit[0].focus();
+	titleEdit[0].addEventListener('blur', ()=>{
+		console.log(titleEdit[0].value);
+		title.innerText = titleEdit[0].value
+		titleEdit[0].style.display = 'none';
+		titleEdit[0].value = title.innerText;
+		title.style.display = 'block';
+	});
+	titleEdit[0].addEventListener('keypress', (e)=>{
+		if(e.which === 13){
+		// console.log(titleEdit[0].value);
+		title.innerText = titleEdit[0].value
+		titleEdit[0].style.display = 'none';
+		title.style.display = 'block';
+		}
+	});
+}); 
+</script>
