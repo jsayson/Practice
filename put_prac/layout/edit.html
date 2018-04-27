@@ -1,27 +1,42 @@
+<head>
+	<style>
+	textarea{
+		resize: vertical;
+		width: 100%;
+	}
+	</style>
+</head>
 {% for item in item %}
 <div>
 	<p id='title'><strong>{{item.title}}</strong></p>
 	<input type='text' style='display:none' name='title'><br>
-	<p>{{item.description}}</p>
-	<textarea name='desc'>{{item.description}}</textarea><br>
-	<a href='/edit'><button>Submit</button></a>
+	<input type='hidden' name='id' value='{{item['_id']}}'><br>
+	<p id='desc'>{{item.description}}</p>
+	<textarea name='desc' style='display:none'>{{item.description}}</textarea><br>
+	<a href='/edit?id={{item['_id']}}&title={{item.title}}'><button>Submit</button></a>
 </div>
 {% endfor %}
 <script>
 let title = document.getElementById('title');
+let href = document.querySelectorAll('a');
+let textarea = document.querySelectorAll('textarea');
+let desc = document.getElementById('desc');
+let titleEdit = document.querySelectorAll('input');
+// console.log(textarea);
 // console.log(title);
 title.addEventListener('click', ()=>{
 	title.style.display= 'none';
-	let titleEdit = document.querySelectorAll('input');
 	titleEdit[0].value = title.innerText;
 	titleEdit[0].style.display= 'block';
 	titleEdit[0].focus();
 	titleEdit[0].addEventListener('blur', ()=>{
-		console.log(titleEdit[0].value);
+		// console.log(titleEdit[0].value);
 		title.innerText = titleEdit[0].value
 		titleEdit[0].style.display = 'none';
 		titleEdit[0].value = title.innerText;
 		title.style.display = 'block';
+		href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
+		console.log(href[0].search);
 	});
 	titleEdit[0].addEventListener('keypress', (e)=>{
 		if(e.which === 13){
@@ -29,6 +44,34 @@ title.addEventListener('click', ()=>{
 		title.innerText = titleEdit[0].value
 		titleEdit[0].style.display = 'none';
 		title.style.display = 'block';
+		href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
+		console.log(href[0].search);
+		}
+	});
+}); 
+
+desc.addEventListener('click', ()=>{
+	desc.style.display= 'none';
+	textarea[0].value = desc.innerText;
+	textarea[0].style.display= 'block';
+	textarea[0].focus();
+	textarea[0].addEventListener('blur', ()=>{
+		// console.log(titleEdit[0].value);
+		desc.innerText = textarea[0].value
+		textarea[0].style.display = 'none';
+		textarea[0].value = desc.innerText;
+		desc.style.display = 'block';
+		href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
+		console.log(href[0].search);
+	});
+	textarea[0].addEventListener('keypress', (e)=>{
+		if(e.which === 13){
+		// console.log(titleEdit[0].value);
+		desc.innerText = textarea[0].value
+		textarea[0].style.display = 'none';
+		desc.style.display = 'block';
+		href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
+		console.log(href[0].search);
 		}
 	});
 }); 
