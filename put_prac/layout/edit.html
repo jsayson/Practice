@@ -13,7 +13,7 @@
 	<input type='hidden' name='id' value='{{item['_id']}}'><br>
 	<p id='desc'>{{item.description}}</p>
 	<textarea name='desc' style='display:none'>{{item.description}}</textarea><br>
-	<a href='/edit?id={{item['_id']}}&title={{item.title}}'><button>Submit</button></a>
+	<a href='###' style='display: none'><button>Submit</button></a>
 </div>
 {% endfor %}
 <script>
@@ -24,7 +24,9 @@ let desc = document.getElementById('desc');
 let titleEdit = document.querySelectorAll('input');
 // console.log(textarea);
 // console.log(title);
+href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
 title.addEventListener('click', ()=>{
+	href[0].style.display = 'block';
 	title.style.display= 'none';
 	titleEdit[0].value = title.innerText;
 	titleEdit[0].style.display= 'block';
@@ -51,6 +53,7 @@ title.addEventListener('click', ()=>{
 }); 
 
 desc.addEventListener('click', ()=>{
+	href[0].style.display = 'block';
 	desc.style.display= 'none';
 	textarea[0].value = desc.innerText;
 	textarea[0].style.display= 'block';
