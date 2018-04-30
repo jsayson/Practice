@@ -1,28 +1,22 @@
-const ObjectId = require('mongodb').ObjectId;
+const ObjectID = require('mongodb').ObjectID;
 module.exports = function(app, db){
 	const dbc = db.db('try');
-	app.get('/:edit', (req, res)=>{
-		// res.send(req.query.id);
-		const details = {'_id': ObjectId(req.query.id) };
-		dbc.collection('posts').find(details).toArray((err, docs)=>{
-			if(err){
-				res.sendStatus(404);
-			}
-			else{
-				res.render('edit', {'item': docs});
-			}
+	app.get('/:id', (req, res)=>{
+		const urlId = req.params.id;
+		const id = { '_id' : new ObjectID(urlId)};
+		dbc.collection('posts').findOne(id, (err, docs)=>{
+			res.render('edit', {'id' : docs['_id'], 'title' : docs.title, 'desc' : docs.description});
 		});
-		// res.send(details);
 	});
-	app.put('/:edit', (req, res)=>{
-		const details = {'_id': ObjectId(req.query.id) };
-		const note = { $set: {'title': req.query.title, 'desc': req.query.desc} };
-		dbc.collection('posts').updateOne(details, note, (err, result)=>{
-			if (err) {
-		          console.log({'error':'An error has occurred'});
-		      } else {
-		          console.log(note);
-		      } 
+	app.put('/:id', (req, res)=>{
+		console.log(req.body);
+		const urlId = req.body.id;
+		const id = { '_id' : new ObjectID(urlId)};
+		const item = {title: req.body.title, description: req.body.desc};
+		dbc.collection('posts').update(id, item, (error, docs)=>{
+			if(error) throw error;
+			res.send('success');
 		});
+		// res.send('hello');
 	});
 };
