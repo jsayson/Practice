@@ -1,4 +1,5 @@
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<style>
 	textarea{
 		resize: vertical;
@@ -6,16 +7,19 @@
 	}
 	</style>
 </head>
-{% for item in item %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div>
-	<p id='title'><strong>{{item.title}}</strong></p>
+	<!-- <form method='post' action='/{{id}}'> -->
+	<form id='form'>
+	<p id='title'><strong>{{title}}</strong></p>
 	<input type='text' style='display:none' name='title'><br>
-	<input type='hidden' name='id' value='{{item['_id']}}'><br>
-	<p id='desc'>{{item.description}}</p>
-	<textarea name='desc' style='display:none'>{{item.description}}</textarea><br>
-	<a href='###' style='display: none'><button>Submit</button></a>
+	<input type='hidden' name='id' value='{{id}}'><br>
+	<p id='desc'>{{desc}}</p>
+	<textarea name='desc' style='display:none'></textarea><br>
+	<a href='###' style='display: none' class='btn btn-default'><button>Submit</button></a>
+</form>
+	<!-- </form> -->
 </div>
-{% endfor %}
 <script>
 let title = document.getElementById('title');
 let href = document.querySelectorAll('a');
@@ -24,7 +28,7 @@ let desc = document.getElementById('desc');
 let titleEdit = document.querySelectorAll('input');
 // console.log(textarea);
 // console.log(title);
-href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
+// href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
 title.addEventListener('click', ()=>{
 	href[0].style.display = 'block';
 	title.style.display= 'none';
@@ -37,7 +41,7 @@ title.addEventListener('click', ()=>{
 		titleEdit[0].style.display = 'none';
 		titleEdit[0].value = title.innerText;
 		title.style.display = 'block';
-		href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
+		// href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
 		console.log(href[0].search);
 	});
 	titleEdit[0].addEventListener('keypress', (e)=>{
@@ -46,7 +50,7 @@ title.addEventListener('click', ()=>{
 		title.innerText = titleEdit[0].value
 		titleEdit[0].style.display = 'none';
 		title.style.display = 'block';
-		href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
+		// href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
 		console.log(href[0].search);
 		}
 	});
@@ -64,7 +68,7 @@ desc.addEventListener('click', ()=>{
 		textarea[0].style.display = 'none';
 		textarea[0].value = desc.innerText;
 		desc.style.display = 'block';
-		href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
+		// href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
 		console.log(href[0].search);
 	});
 	textarea[0].addEventListener('keypress', (e)=>{
@@ -73,9 +77,34 @@ desc.addEventListener('click', ()=>{
 		desc.innerText = textarea[0].value
 		textarea[0].style.display = 'none';
 		desc.style.display = 'block';
-		href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
+		// href[0].search = `?id=${titleEdit[1].value}&title=${title.innerText}&desc=${textarea[0].value}`;
 		console.log(href[0].search);
 		}
 	});
-}); 
+});
+
+href[0].addEventListener('click', (e)=>{
+	e.preventDefault();
+	let form = document.getElementById('form');
+	let data = new FormData(form);
+	data.append('title', form[0].value);
+	data.append('id', form[1].value);
+	data.append('desc', form[2].value);
+	item = {
+		id: data.get('id'),
+		title: data.get('title') || title.innerText,
+		desc: data.get('desc') || desc.innerText
+	};
+	console.log(item);
+	$.ajax({
+        url: '/id',
+	    method: 'PUT',
+	    data: JSON.stringify(item),
+	    headers: {'content-type': 'application/json'},
+	    success: (results)=>{
+	    	console.log(results);
+	    }
+	});
+	// href[0].style.display = 'none';
+});
 </script>
