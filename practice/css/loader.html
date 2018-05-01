@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+	.loader{
+		height: 60px;
+		width: 60px;
+		/*border: 16px solid #f3f3f3;*/
+  		/*border-radius: 50%;*/
+  		/*border: 16px solid;*/
+  		/*background-color: #3498db;*/
+  		animation: load 3s linear infinite;
+	}
+	@keyframes load{
+		0%{
+			transform: rotate(0deg);
+			width: 10px;
+			height: 10px;
+			border-radius: 50%; 
+			background-color: #B71C1C;
+		}
+		25%{
+			transform: rotate(90deg);
+			height: 60px;
+			width: 60px;
+			background-color: #880E4F;
+		}
+		50%{
+			transform: rotate(180deg);
+			width: 10px;
+			height: 10px;
+			border-radius: 50%; 
+			background-color: #4A148C;
+		}
+		75%{
+			transform: rotate(270deg);
+			height: 60px;
+			width: 60px;
+		}
+		100%{
+			transform: rotate(360deg);
+			width: 10px;
+			height: 10px;
+			border-radius: 50%; 
+		}
+	}	
+	.rotate{
+		height: 150px;
+		width: 150px;
+		animation: rotate_loader 4s linear infinite;
+	}
+	@keyframes rotate_loader{
+		0%{
+			transform: rotate(0deg);
+		}
+		100%{
+			transform: rotate(360deg);
+		}
+	}
+	</style>
+</head>
+<body>
+	<div class='rotate'><div class='loader'></div></div>
+</body>
+</html>
