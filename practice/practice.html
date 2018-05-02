@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+</head>
+<body>
+	<form id='form'>
+		<input type='text' placeholder='sample' name='sample'>
+		<input type='button' value='submit' id='submit'>
+	</form>
+	<script>
+	const click = document.getElementById('submit');
+	const form = document.getElementById('form');
+	click.addEventListener('click', Try)
+	function Try(e){
+		e.preventDefault();
+		const data = new FormData(form);
+		console.log(data.get('sample'));
+	}
+	</script>
+</body>
+</html>
