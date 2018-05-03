@@ -1,39 +1,5 @@
 import React, { Component } from 'react';
 
-class Item extends React.Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			item: this.props.details,
-			id: this.props.id
-		}
-		this.handleUpdate = this.handleUpdate.bind(this);
-	}
-	handleUpdate(e){
-		// console.log(this.props);
-		e.preventDefault();
-		const id = this.state.id;
-		const data = new FormData(e.target);
-		console.log(data.get('title'));
-		const item = { id: data.get('id'), title: data.get('title') };
-		fetch(`/api/edit/{id}`, {
-			method: 'PUT',
-			body: JSON.stringify(item),
-			headers: {'Content-Type': 'application/json'}
-		}).then(res=>res.json());
-	}
-	render(){
-		const { _id, title } = this.state.item;
-		console.log(_id);
-		return (
-			<form onSubmit={this.handleUpdate}>
-			<input type='hidden' name='id' defaultValue={_id} />
-			<input type='text' placeholder='title' defaultValue={title} name='title'/>
-			<input type='submit' value='submit' />
-			</form>
-			)
-	}
-}
 class Edit extends React.Component{
 	constructor(props){
 		super(props);
@@ -43,6 +9,23 @@ class Edit extends React.Component{
 			error: false,
 			id: this.props.match.params.id
 		}
+		this.handleUpdate = this.handleUpdate.bind(this);
+	}
+	handleUpdate(e){
+		e.preventDefault();
+		const data = new FormData(e.target);
+		const item = {
+			id: data.get('id'),
+			title: data.get('title'),
+			r_imdb: data.get('r_imdb'),
+			r_tomato: data.get('r_tomato')
+		};
+		const { id } = this.state;
+		fetch(`/api/edit/${id}`, {
+			method: 'PUT',
+			body: JSON.stringify(item),
+			headers: { 'Content-Type': 'application/json'}
+		}).then(res=>console.log(res));
 	}
 	componentDidMount(){
 		// const id = this.props.match.params.id;
@@ -52,6 +35,7 @@ class Edit extends React.Component{
 	}
 	render(){
 		const { item, isLoaded, error } = this.state;
+		// console.log(item);
 		if(error){
 			return <h1>Error: 404</h1>
 		}
@@ -59,7 +43,22 @@ class Edit extends React.Component{
 			return <h1>Loading...</h1>
 		}
 		else{
-			return <Item details={item} id={this.state.id} />
+			return (
+			<form onSubmit={this.handleUpdate}>
+			<input type='hidden' defaultValue={item._id} name='id' />
+			<label>Title:  
+			<input type='text' defaultValue={item.title} name='title'/>
+			</label><br/>
+			<label>Rating: <br/>
+			<label>Imdb:
+			<input type='text' defaultValue={item.rating.imdb} name='r_imdb'/>
+			</label><br/>
+			<label>Tomato
+			<input type='text' defaultValue={item.rating.tomato} name='r_tomato' />
+			</label>
+			</label><br/>
+			<input type='submit' value='Submit' />
+			</form>);
 		}
 	}
 }
