@@ -23,8 +23,9 @@ module.exports = function(app, db){
 		// dbc.collection('movies').updateOne(itemId, itemDetails, (err, docs)=>{
 		// 	if(err) throw err;
 		// 	res.send({'Updated': docs});
+		console.log(req.body)
 		const id = {'_id' : new ObjectID(req.body.id)};
-		const edit = { $set: { title : req.body.title} };
+		const edit = { $set: { title : req.body.title, rating: { imdb: req.body.r_imdb, tomato: req.body.r_tomato} } };
 		dbc.collection('movies').updateOne(id, edit, (err, docs)=>{
 			if(err) throw err;
 			res.send('Updated');
