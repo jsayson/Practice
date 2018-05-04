@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+import ViewPost from './components/viewPost.js';
+
 import './css/loader.css';
 
 function Items(props){
@@ -43,7 +47,13 @@ class Posts extends React.Component{
 
 class App extends React.Component{
 	render(){
-		return (<Posts />);
+		return (
+			<Router>
+			<div>
+			<Route exact path='/' component={Posts}/>
+			<Route exact path='/post/:id' component={ViewPost} />
+			</div>
+			</Router>);
 	}
 }
 
