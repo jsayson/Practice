@@ -1,0 +1,52 @@
+div.load > div{
+	margin: 10px;
+}
+.load{
+	display: flex;
+	margin: 25%;
+}
+.bar-1{
+	height: 30px;
+	width: 5px;
+	background-color: #000;
+	animation: bar1 1s linear infinite;
+}
+.bar-2{
+	height: 30px;
+	width: 5px;
+	background-color: #000;
+	animation: bar2 1s linear infinite;
+}
+.bar-3{
+	height: 30px;
+	width: 5px;
+	background-color: #000;
+	animation: bar3 1s linear infinite;
+}
+.bar-4{
+	height: 30px;
+	width: 5px;
+	background-color: #000;
+	animation: bar4 1s linear infinite;
+}
+.bar-5{
+	height: 30px;
+	width: 5px;
+	background-color: #000;
+	animation: bar5 1s linear infinite;
+}
+@keyframes bar1{
+	0%{transform: scale(2);}
+}
+@keyframes bar2{
+	25%{transform: scale(2);}
+}
+@keyframes bar3{
+	50%{transform: scale(2);}
+}
+@keyframes bar4{
+	75%{transform: scale(2);}
+}
+@keyframes bar5{
+	100%{transform: scale(2);}
+}
