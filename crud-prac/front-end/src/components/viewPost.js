@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-
 import '../css/loader.css';
-
 
 class ViewPost extends React.Component{
 	constructor(props){
@@ -34,15 +32,21 @@ class ViewPost extends React.Component{
 				);
 		}
 		else{
+			const comment = [
+			{id: 1, comment : 'What a nice song' },
+			{id: 2, comment : 'Damn this song'}
+			];
 			return(
 				<div>
 				<div>
 				<p><strong>{item.title}</strong></p>
 				<p>{item.description}</p>
 				</div><hr/>
-				<label>Comments</label>
 				<form>
-				<textarea name='comment'></textarea><br/>
+				<label>Comments:</label><br/>
+				{ comment.map((docs, index)=> docs === 'undefined' ? 'Write a comment' : <p key={index} >{docs.comment}</p>) }
+				<br/><hr/>
+				<textarea name='comment' placeholder='Write a comment.'></textarea><br/>
 				<input type='submit' value='submit' />
 				</form>
 				</div>
