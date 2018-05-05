@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import ViewPost from './components/viewPost.js';
+import SubmitPost from './components/submitPost.js';
+import EditPost from './components/editPost.js';
 
 import './css/loader.css';
 
@@ -51,7 +53,9 @@ class App extends React.Component{
 			<Router>
 			<div>
 			<Route exact path='/' component={Posts}/>
+			<Route exact path='/submit' component={SubmitPost} />
 			<Route exact path='/post/:id' component={ViewPost} />
+			<Route exact path='/post/edit/:id' component={EditPost} />
 			</div>
 			</Router>);
 	}
