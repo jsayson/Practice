@@ -11,8 +11,12 @@ class SubmitPost extends React.Component{
 		e.preventDefault();
 		const data = new FormData(e.target);
 		const item = { title : data.get('title') || 'Empty field' ,description: data.get('description') || 'Empty field'};
-		console.log(item);
-
+		console.log(JSON.stringify(item));
+		fetch('/api/post',{
+			method: 'POST',
+			body: JSON.stringify(item),
+			headers: {'Content-Type' : 'application/json'}
+		}).then(res=>res.json());
 	}
 	render(){
 		return (
