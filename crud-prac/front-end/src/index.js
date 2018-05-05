@@ -12,7 +12,12 @@ import './css/loader.css';
 function Items(props){
 	console.log(props);
 	const item = props.post;
-	return (<div id={item._id}><p><strong>{item.title}</strong></p><p>{item.description}</p></div>)
+	const postUrl = '/post/';
+	return (<div id={item._id}>
+		<p><strong>{item.title}</strong></p>
+		<p>{item.description}</p>
+		<Link to={postUrl+item._id}>See More</Link>
+		<hr/></div>)
 }
 
 class Posts extends React.Component{
