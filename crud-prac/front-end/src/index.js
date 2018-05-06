@@ -10,7 +10,6 @@ import EditPost from './components/editPost.js';
 import './css/loader.css';
 
 function Items(props){
-	console.log(props);
 	const item = props.post;
 	const postUrl = '/post/';
 	return (<div id={item._id}>
@@ -47,7 +46,9 @@ class Posts extends React.Component{
 				</div>);
 		}
 		else{
-			return items.map(res=><Items post={res} key={res._id} />)
+			return (<div>
+				<Link to='/submit'>Wanna write something?</Link>
+				{ items.map(res=><Items post={res} key={res._id} />) } </div>);
 		}
 	}
 }
