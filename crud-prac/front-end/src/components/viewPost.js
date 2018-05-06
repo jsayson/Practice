@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 
+import { Redirect } from 'react-router';
+
 import '../css/loader.css';
 
 function Comments(props){
@@ -16,15 +18,22 @@ class ViewPost extends React.Component{
 		this.state = {
 			item: [],
 			isLoaded: false,
-			error: false
-		}
+			error: false,
+			redirect: false
+		};
+		this.handleDelete = this.handleDelete.bind(this);
 	}
 	componentDidMount(){
 		const param = this.props.match.params.id;
 		fetch(`/api/post/${param}`).then(res=>res.json()).then(res=>this.setState({item: res, isLoaded: true}), (error)=>this.setState({isLoaded: false, error}));
 	}
+	handleDelete(e){
+		e.preventDefault();
+		console.log('deleted');
+		this.setState({redirect: true});
+	}
 	render(){
-		const { item, isLoaded, error } = this.state;
+		const { item, isLoaded, error, redirect } = this.state;
 		if(error){
 			return <h1>Error 404</h1>			
 		}
@@ -47,8 +56,10 @@ class ViewPost extends React.Component{
 			return(
 				<div>
 				<div>
-				<Link to='/'>Go back</Link>
-				<p><strong>{item.title}</strong></p>
+				<Link to='/'>Go back</Link> <Link to='#'onClick={this.handleDelete}>Delete</Link>
+				<div><strong>{item.title}</strong>
+				{ redirect === true ? <Redirect to='/' /> : false }
+				</div>
 				<p>{item.description}</p>
 				</div><hr/>
 				<form>
@@ -56,7 +67,7 @@ class ViewPost extends React.Component{
 				{ comment.map((docs, index)=> docs === 'undefined' ? 'Write a comment' : <Comments key={index} com={docs} />) }
 				<br/><hr/>
 				<textarea name='comment' placeholder='Write a comment.'></textarea><br/>
-				<input type='submit' value='submit' />
+				<input type='submit' value='Submit' />
 				</form>
 				</div>
 				);
