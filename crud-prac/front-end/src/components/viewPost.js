@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import '../css/loader.css';
+
+function Comments(props){
+	console.log(props);
+	const commu = props.com;
+	return (<div><br/>User: <span>{commu.comment}</span></div>);
+}
 
 class ViewPost extends React.Component{
 	constructor(props){
@@ -39,12 +47,13 @@ class ViewPost extends React.Component{
 			return(
 				<div>
 				<div>
+				<Link to='/'>Go back</Link>
 				<p><strong>{item.title}</strong></p>
 				<p>{item.description}</p>
 				</div><hr/>
 				<form>
 				<label>Comments:</label><br/>
-				{ comment.map((docs, index)=> docs === 'undefined' ? 'Write a comment' : <p key={index} >{docs.comment}</p>) }
+				{ comment.map((docs, index)=> docs === 'undefined' ? 'Write a comment' : <Comments key={index} com={docs} />) }
 				<br/><hr/>
 				<textarea name='comment' placeholder='Write a comment.'></textarea><br/>
 				<input type='submit' value='submit' />
