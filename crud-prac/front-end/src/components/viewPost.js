@@ -6,10 +6,47 @@ import { Redirect } from 'react-router';
 
 import '../css/loader.css';
 
-function Comments(props){
-	console.log(props);
-	const commu = props.com;
-	return (<div><br/>User: <span>{commu.comment}</span></div>);
+function ViewComments(props){
+	return (<div>User: {props.item.comment}</div>);
+}
+
+class Comments extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			comments: [],
+			error: false,
+			isLoaded: false,
+		}
+	}
+	componentDidMount(){
+		const postId = this.props.postId;
+		const apiUrl = '/api/post/comments/';
+		fetch(apiUrl+postId).then(res=>res.json()).then(res=>this.setState({comments: res, isLoaded: true}), (error)=>this.setState({isLoaded: false, error})) 
+	}
+	render(){
+		const { comments, error, isLoaded } = this.state;
+		if(error){
+			return (<p><strong>Cant find comments</strong></p>);
+		}
+		else if(!isLoaded){
+			return (
+				<div>
+				<p><strong>Loading Comments</strong></p>
+				<div className='load'>
+					<div className='bar-1'></div>
+					<div className='bar-2'></div>
+					<div className='bar-3'></div>
+					<div className='bar-4'></div>
+					<div className='bar-5'></div>
+				</div>
+				</div>
+				);
+		}
+		else{
+			return comments.map((docs)=><ViewComments key={docs._id} item={docs} />);
+		}
+	}
 }
 
 class ViewPost extends React.Component{
@@ -22,6 +59,7 @@ class ViewPost extends React.Component{
 			redirect: false
 		};
 		this.handleDelete = this.handleDelete.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	componentDidMount(){
 		const param = this.props.match.params.id;
@@ -29,11 +67,25 @@ class ViewPost extends React.Component{
 	}
 	handleDelete(e){
 		e.preventDefault();
-		console.log('deleted');
-		this.setState({redirect: true});
+		const param = this.props.match.params.id;
+		const url = '/api/post/delete/';
+		fetch((url+param), {
+			method: 'DELETE'
+		}).then(res=> res.ok === true ? this.setState({redirect:true}) : false );
+	}
+	handleSubmit(e){
+		e.preventDefault();
+		const data = new FormData(e.target);
+		const item = { postId: data.get('postId'), comment: data.get('comment') || 'Sample comment' };
+		fetch('/api/submit/comment', {
+			method: 'POST',
+			body: JSON.stringify(item),
+			headers: { 'Content-Type': 'application/json' }
+		}).then(res => res.ok === true ? console.log('Commented') : false);
 	}
 	render(){
 		const { item, isLoaded, error, redirect } = this.state;
+		const param = this.props.match.params.id;
 		if(error){
 			return <h1>Error 404</h1>			
 		}
@@ -49,10 +101,6 @@ class ViewPost extends React.Component{
 				);
 		}
 		else{
-			const comment = [
-			{id: 1, comment : 'What a nice song' },
-			{id: 2, comment : 'Damn this song'}
-			];
 			return(
 				<div>
 				<div>
@@ -62,10 +110,11 @@ class ViewPost extends React.Component{
 				</div>
 				<p>{item.description}</p>
 				</div><hr/>
-				<form>
+				<form onSubmit={this.handleSubmit}>
 				<label>Comments:</label><br/>
-				{ comment.map((docs, index)=> docs === 'undefined' ? 'Write a comment' : <Comments key={index} com={docs} />) }
+				<Comments postId={param}/>
 				<br/><hr/>
+				<input type='hidden' name='postId' defaultValue={item._id} />
 				<textarea name='comment' placeholder='Write a comment.'></textarea><br/>
 				<input type='submit' value='Submit' />
 				</form>
