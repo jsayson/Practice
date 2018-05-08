@@ -6,8 +6,22 @@ import { Redirect } from 'react-router';
 
 import '../css/loader.css';
 
-function ViewComments(props){
-	return (<div>User: {props.item.comment}</div>);
+class ViewComments extends React.Component{
+	constructor(props){
+		super(props);
+		this.handleDelete = this.handleDelete.bind(this);
+	}
+	handleDelete(e){
+		e.preventDefault();
+		console.log('Deleted');
+	}
+	render(){
+		return (
+			<form>
+			<div>User: {this.props.item.comment} <a href='#' onClick={this.handleDelete}>&times;</a> </div>
+				<input type='hidden' name={this.props.item._id} />
+			</form>);
+	}
 }
 
 class Comments extends React.Component{
