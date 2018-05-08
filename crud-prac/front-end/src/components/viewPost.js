@@ -4,23 +4,29 @@ import { Link } from 'react-router-dom';
 
 import { Redirect } from 'react-router';
 
-import '../css/loader.css';
 
 class ViewComments extends React.Component{
 	constructor(props){
 		super(props);
-		this.handleDelete = this.handleDelete.bind(this);
+		this.state = { redirect: false };
+		this.handleCommentDelete = this.handleCommentDelete.bind(this);
 	}
-	handleDelete(e){
+	handleCommentDelete(e){
 		e.preventDefault();
-		console.log('Deleted');
+		const commentId = this.props.item._id;
+		fetch(`/api/delete/comment/${commentId}`,{
+			method: 'DELETE',
+		}).then(res => res.ok === true ? console.log('Deleted') : false);
+		const item = document.getElementById(commentId);
+		console.log(item);
+		item.remove();
 	}
 	render(){
 		return (
-			<form>
-			<div>User: {this.props.item.comment} <a href='#' onClick={this.handleDelete}>&times;</a> </div>
-				<input type='hidden' name={this.props.item._id} />
-			</form>);
+			<div id={this.props.item._id} >
+			<p>User: {this.props.item.comment} <span><a href='#' onClick={this.handleCommentDelete}>&times;</a></span></p>
+			</div>
+			);
 	}
 }
 
@@ -124,9 +130,9 @@ class ViewPost extends React.Component{
 				</div>
 				<p>{item.description}</p>
 				</div><hr/>
-				<form onSubmit={this.handleSubmit}>
 				<label>Comments:</label><br/>
 				<Comments postId={param}/>
+				<form onSubmit={this.handleSubmit}>
 				<br/><hr/>
 				<input type='hidden' name='postId' defaultValue={item._id} />
 				<textarea name='comment' placeholder='Write a comment.'></textarea><br/>
