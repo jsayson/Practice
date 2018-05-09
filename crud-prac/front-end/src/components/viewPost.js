@@ -10,6 +10,7 @@ class ViewComments extends React.Component{
 		super(props);
 		this.state = { redirect: false };
 		this.handleCommentDelete = this.handleCommentDelete.bind(this);
+		this.handleEditComment = this.handleEditComment.bind(this);
 	}
 	handleCommentDelete(e){
 		e.preventDefault();
@@ -21,10 +22,24 @@ class ViewComments extends React.Component{
 		console.log(item);
 		item.remove();
 	}
+	handleEditComment(e){
+		e.preventDefault();
+		const commentId = this.props.item._id;
+		const postId = this.props.item.postId;
+		const comment = document.getElementById('comment'+commentId).value;
+		console.log(comment);
+		fetch(`/api/update/comment/${commentId}`, {
+			method: 'PUT',
+			body: JSON.stringify({ id: commentId, postId: postId, comment: comment }),
+			headers: { 'Content-Type': 'application/json' }
+		}).then(res => res.ok === true ? console.log('Updated') : false);
+	}
 	render(){
 		return (
 			<div id={this.props.item._id} >
-			<p>User: {this.props.item.comment} <span><a href='#' onClick={this.handleCommentDelete}>&times;</a></span></p>
+			<input type='text' defaultValue={this.props.item.comment} placeholder='comment' id={'comment'+this.props.item._id} />
+			<a href='#' onClick={this.handleEditComment}>&#10003;</a><span> </span>
+			<a href='#' onClick={this.handleCommentDelete}>&times;</a>
 			</div>
 			);
 	}
