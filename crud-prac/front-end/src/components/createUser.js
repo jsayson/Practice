@@ -7,7 +7,7 @@ import { Redirect } from 'react-router';
 class CreateAcc extends React.Component{
 	constructor(props){
 		super(props);
-		this.state = {};
+		this.state = { redirect: false };
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	handleSubmit(e){
@@ -16,17 +16,19 @@ class CreateAcc extends React.Component{
 		const item = { user: data.get('user'), pass: data.get('pass') };
 		fetch('/api/create/user', {
 			method: 'POST',
+			credentials: 'include',
 			body: JSON.stringify(item),
 			headers: { 'Content-Type' : 'application/json' }
-		}).then(res=>console.log(res.ok === true ? 'Created Account' : 'failed'));
+		}).then(res=>res.ok === true ? this.setState({redirect: true}): console.log('Failed'));
 	}
 	render(){
-		return (<form>
-			<label><strong>Create Account</strong></label><br/>
-			<input type='text' placeholder='Username' name='user' /><br/>
-			<input type='password' placeholder='Password' name='pass' /><br/>
-			<input type='submit' value='Submit' />
-			</form>);
+		const {redirect} = this.state;
+			return (<form onSubmit={this.handleSubmit}>
+						<label><strong>Create Account</strong></label><br/>
+						<input type='text' placeholder='Username' name='user' /><br/>
+						<input type='password' placeholder='Password' name='pass' /><br/>
+						<input type='submit' value='Submit' />
+					</form>);
 		}
 	}
 
