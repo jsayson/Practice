@@ -22,6 +22,7 @@ class SubmitPost extends React.Component{
 		fetch('/api/post',{
 			method: 'POST',
 			body: JSON.stringify(item),
+			credentials: 'include',
 			headers: {'Content-Type' : 'application/json'}
 		}).then(res=>res.ok === true ? this.setState({redirect : true}) : false);
 	}
