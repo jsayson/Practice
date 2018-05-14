@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Redirect } from 'react-router';
 
+import '../css/img.css';
 
 class ViewComments extends React.Component{
 	constructor(props){
@@ -17,6 +18,7 @@ class ViewComments extends React.Component{
 		const commentId = this.props.item._id;
 		fetch(`/api/delete/comment/${commentId}`,{
 			method: 'DELETE',
+			credentials: 'include',
 		}).then(res => res.ok === true ? console.log('Deleted') : false);
 		const item = document.getElementById(commentId);
 		console.log(item);
@@ -31,13 +33,17 @@ class ViewComments extends React.Component{
 		fetch(`/api/update/comment/${commentId}`, {
 			method: 'PUT',
 			body: JSON.stringify({ id: commentId, postId: postId, comment: comment }),
+			credentials: 'include',
 			headers: { 'Content-Type': 'application/json' }
 		}).then(res => res.ok === true ? console.log('Updated') : false);
 	}
 	render(){
+		const user = this.props.item.user;
 		return (
 			<div id={this.props.item._id} >
+			<label><img src='#' alt={ String(user)==='undefined' ? 'User' : user.charAt(0).toUpperCase()+user.slice(1) } />:
 			<input type='text' defaultValue={this.props.item.comment} placeholder='comment' id={'comment'+this.props.item._id} />
+			</label>
 			<a href='#' onClick={this.handleEditComment}>&#10003;</a><span> </span>
 			<a href='#' onClick={this.handleCommentDelete}>&times;</a>
 			</div>
@@ -57,10 +63,11 @@ class Comments extends React.Component{
 	componentDidMount(){
 		const postId = this.props.postId;
 		const apiUrl = '/api/post/comments/';
-		fetch(apiUrl+postId).then(res=>res.json()).then(res=>this.setState({comments: res, isLoaded: true}), (error)=>this.setState({isLoaded: false, error})) 
+		fetch(apiUrl+postId, {credentials: 'include',}).then(res=>res.json()).then(res=>this.setState({comments: res, isLoaded: true}), (error)=>this.setState({isLoaded: false, error})) 
 	}
 	render(){
 		const { comments, error, isLoaded } = this.state;
+		console.log(comments);
 		if(error){
 			return (<p><strong>Cant find comments</strong></p>);
 		}
@@ -98,14 +105,15 @@ class ViewPost extends React.Component{
 	}
 	componentDidMount(){
 		const param = this.props.match.params.id;
-		fetch(`/api/post/${param}`).then(res=>res.json()).then(res=>this.setState({item: res, isLoaded: true}), (error)=>this.setState({isLoaded: false, error}));
+		fetch(`/api/post/${param}`, {credentials: 'include'}).then(res=>res.json()).then(res=>this.setState({item: res, isLoaded: true}), (error)=>this.setState({isLoaded: false, error}));
 	}
 	handleDelete(e){
 		e.preventDefault();
 		const param = this.props.match.params.id;
 		const url = '/api/post/delete/';
 		fetch((url+param), {
-			method: 'DELETE'
+			method: 'DELETE',
+			credentials: 'include',
 		}).then(res=> res.ok === true ? this.setState({redirect:true}) : false );
 	}
 	handleSubmit(e){
@@ -115,6 +123,7 @@ class ViewPost extends React.Component{
 		fetch('/api/submit/comment', {
 			method: 'POST',
 			body: JSON.stringify(item),
+			credentials: 'include',
 			headers: { 'Content-Type': 'application/json' }
 		}).then(res => res.ok === true ? console.log('Commented') : false);
 	}
