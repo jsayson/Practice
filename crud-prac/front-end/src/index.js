@@ -3,20 +3,36 @@ import ReactDOM from 'react-dom';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+import { CookiesProvider } from 'react-cookie';
+
 import ViewPost from './components/viewPost.js';
 import SubmitPost from './components/submitPost.js';
 import EditPost from './components/editPost.js';
+import createAcc from './components/createUser.js';
+import Header from './components/header.js';
 
 import './css/loader.css';
+import './css/hide.css';
+import './css/img.css';
+
 
 function Items(props){
 	const item = props.post;
 	const postUrl = '/post/';
-	return (<div id={item._id}>
-		<p><strong>{item.title}</strong></p>
-		<p>{item.description}</p>
-		<Link to={postUrl+item._id}>See More</Link>
-		<hr/></div>)
+	if(item.description.length > 20){
+		return (<div id={item._id}>
+			<p><strong>{item.title}</strong></p>
+			<div>{item.description.charAt(0)+item.description.slice(1, 10) } <a href="#">see more..</a></div>
+			<Link to={postUrl+item._id}>View Post</Link>
+			<hr/></div>);
+	}
+	else{
+		return (<div id={item._id}>
+			<p><strong>{item.title}</strong></p>
+			<p>{item.description}</p>
+			<Link to={postUrl+item._id}>View Post</Link>
+			<hr/></div>);
+	}
 }
 
 class Posts extends React.Component{
@@ -29,7 +45,10 @@ class Posts extends React.Component{
 		}
 	}
 	componentDidMount(){
-		fetch('/api/posts').then(res=>res.json()).then(res=>this.setState({items: res, isLoaded: true}), (error)=>this.setState({isLoaded: false, error}));
+		fetch('/api/posts',{
+			method: 'GET',
+			credentials: 'include'
+		}).then(res=>res.json()).then(res=>this.setState({items: res, isLoaded: true}), (error)=>this.setState({isLoaded: false, error}));
 	}
 	render(){
 		const { items, isLoaded, error } = this.state; 
@@ -56,14 +75,18 @@ class Posts extends React.Component{
 class App extends React.Component{
 	render(){
 		return (
+			<CookiesProvider>
 			<Router>
-			<div>
+			<div className='app'>
+			<Header />
 			<Route exact path='/' component={Posts}/>
 			<Route exact path='/submit' component={SubmitPost} />
 			<Route exact path='/post/:id' component={ViewPost} />
 			<Route exact path='/post/edit/:id' component={EditPost} />
+			<Route exact path='/create/user' component={createAcc} />
 			</div>
-			</Router>);
+			</Router>
+			</CookiesProvider>);
 	}
 }
 
