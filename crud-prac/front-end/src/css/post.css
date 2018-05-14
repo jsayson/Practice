@@ -1,0 +1,27 @@
+.back{
+	grid-area: back;
+}
+.del{
+	grid-area: del;
+	right: 0px;
+}
+.user{
+	grid-area: user;
+}
+.acc{
+	grid-area: acc;
+	font-size: 13px;
+	color: blue;
+}
+.item{ 
+	grid-area: item;
+}
+.post{
+	padding: 2%;
+	display: grid;
+	grid-template-areas:
+	'back back back back back del'
+	'user acc acc acc acc acc'
+	'user item item item item item'
+	;
+}

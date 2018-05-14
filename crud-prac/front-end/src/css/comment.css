@@ -1,0 +1,21 @@
+.item1{
+	grid-area: pic;
+}
+.item2{
+	grid-area: name;
+	font-size: 12px !important;
+}
+.item3{
+	grid-area: input;
+}
+.item4{
+	grid-area: button;
+}
+.comments{
+	padding: 2%;
+	display: grid;
+	grid-template-areas: 
+	'pic name name name name button'
+	'pic input input input input input'
+	'pic input input input input input';
+}
