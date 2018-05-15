@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 
 import '../css/img.css';
+import '../css/comment.css';
+import '../css/post.css';
 
 class ViewComments extends React.Component{
 	constructor(props){
@@ -21,7 +23,6 @@ class ViewComments extends React.Component{
 			credentials: 'include',
 		}).then(res => res.ok === true ? console.log('Deleted') : false);
 		const item = document.getElementById(commentId);
-		console.log(item);
 		item.remove();
 	}
 	handleEditComment(e){
@@ -29,7 +30,6 @@ class ViewComments extends React.Component{
 		const commentId = this.props.item._id;
 		const postId = this.props.item.postId;
 		const comment = document.getElementById('comment'+commentId).value;
-		console.log(comment);
 		fetch(`/api/update/comment/${commentId}`, {
 			method: 'PUT',
 			body: JSON.stringify({ id: commentId, postId: postId, comment: comment }),
@@ -38,14 +38,20 @@ class ViewComments extends React.Component{
 		}).then(res => res.ok === true ? console.log('Updated') : false);
 	}
 	render(){
+		const imgSrc = 'https://scontent.fmnl4-5.fna.fbcdn.net/v/t1.0-1/p160x160/18486433_343741	199362264_5094166040173734415_n.jpg?_nc_cat=0&amp;oh=82a32d7e7d7c02f542ede985117da7e1&amp;oe=5B992254';
+		const imgSampl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu7ciORW5z7scT5Hhjf0x-YzRGkfeWLgaZkYoHXikrh2dK6MS7FA';
 		const user = this.props.item.user;
 		return (
-			<div id={this.props.item._id} >
-			<label><img src='#' alt={ String(user)==='undefined' ? 'User' : user.charAt(0).toUpperCase()+user.slice(1) } />:
+			<div id={this.props.item._id} className='comments'>
+			<div className='item1'><img src={imgSampl} alt={ String(user)==='undefined' ? 'User' : user.charAt(0).toUpperCase()+user.slice(1) } /></div> 
+			<div className='item2'><strong>{ String(user)==='undefined' ? 'User' : user.charAt(0).toUpperCase()+user.slice(1) } :</strong></div>
+			<div className='item3'>
 			<input type='text' defaultValue={this.props.item.comment} placeholder='comment' id={'comment'+this.props.item._id} />
-			</label>
+			</div>
+			<div className='item4'>
 			<a href='#' onClick={this.handleEditComment}>&#10003;</a><span> </span>
 			<a href='#' onClick={this.handleCommentDelete}>&times;</a>
+			</div>
 			</div>
 			);
 	}
@@ -67,7 +73,6 @@ class Comments extends React.Component{
 	}
 	render(){
 		const { comments, error, isLoaded } = this.state;
-		console.log(comments);
 		if(error){
 			return (<p><strong>Cant find comments</strong></p>);
 		}
@@ -145,25 +150,52 @@ class ViewPost extends React.Component{
 				);
 		}
 		else{
+			if(item[1].user==='undefined'){
+				return (<div>
+								<div className='post'>
+								<Link to='/' className='back'>Go back</Link>
+								<Link to='#'onClick={this.handleDelete} className='del'>Delete</Link>
+								<div className='user'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu7ciORW5z7scT5Hhjf0x-YzRGkfeWLgaZkYoHXikrh2dK6MS7FA' alt={item[1].user==='undefined' ? 'User' : item[1].user }/>
+								{ redirect === true ? <Redirect to='/' /> : false }
+								</div>
+								<p className='acc'>{item[1].user==='undefined' ? 'Username' : item[1].user }</p>
+								<div className='item'>
+								<p><strong>{item[0].title}</strong></p>
+								<p>{item[0].description}</p>
+								</div>
+								</div><hr/>
+								<label>Comments:</label><br/>
+								<Comments postId={param}/>
+								<br/><hr/>
+								<p>You must login to comment.</p>
+								</div>)
+			}
+			else{
 			return(
 				<div>
-				<div>
-				<Link to='/'>Go back</Link> <Link to='#'onClick={this.handleDelete}>Delete</Link>
-				<div><strong>{item.title}</strong>
+				<div className='post'>
+				<Link to='/' className='back'>Go back</Link>
+				<Link to='#'onClick={this.handleDelete} className='del'>Delete</Link>
+				<div className='user'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu7ciORW5z7scT5Hhjf0x-YzRGkfeWLgaZkYoHXikrh2dK6MS7FA' alt={item[1].user==='undefined' ? 'User' : item[1].user }/>
 				{ redirect === true ? <Redirect to='/' /> : false }
 				</div>
-				<p>{item.description}</p>
+				<p className='acc'>{item[1].user==='undefined' ? 'Username' : item[1].user }</p>
+				<div className='item'>
+				<p><strong>{item[0].title}</strong></p>
+				<p>{item[0].description}</p>
+				</div>
 				</div><hr/>
 				<label>Comments:</label><br/>
 				<Comments postId={param}/>
 				<form onSubmit={this.handleSubmit}>
 				<br/><hr/>
-				<input type='hidden' name='postId' defaultValue={item._id} />
+				<input type='hidden' name='postId' defaultValue={item[0]._id} />
 				<textarea name='comment' placeholder='Write a comment.'></textarea><br/>
 				<input type='submit' value='Submit' />
 				</form>
 				</div>
 				);
+			}
 		}
 	}
 }
