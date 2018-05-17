@@ -1,76 +1,56 @@
 import React, { Component } from 'react';
 
-import Header from './header.js';
-
-import { Redirect } from 'react-router';
-
 import { Link } from 'react-router-dom';
 
-class CreateAcc extends React.Component{
+import '../css/header.css';
+
+class Header extends React.Component{
 	constructor(props){
 		super(props);
-		this.state = { users: [], redirect: false,  };
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-	}
-	handleChange(e){
-		e.preventDefault();
-		const { users } = this.state;
-		const user = document.getElementById('user');
-		const checker = document.getElementById('checker');
-		users.forEach((item)=>{
-			if(user.value===item.user){
-				checker.innerHTML = 'Username already taken.';
-				user.style.borderRadius = '2px';
-				user.style.border = 'solid 2px red';
-			}
-			else if(user.value === ''){
-				user.placeholder = 'Required Field';
-			}
-			else{
-				if(user.value.length >= 5){
-					checker.innerHTML = 'Username is available.'
-					user.style.borderRadius = '2px';
-					user.style.border = 'solid 2px green';
-				}
-				else{
-					checker.innerHTML = 'Username is too short.'
-					user.style.borderRadius = '2px';
-					user.style.border = 'solid 2px red';
-				}
-			}
-		})
-	}
-	handleSubmit(e){
-		e.preventDefault();
-		const data = new FormData(e.target);
-		const item = { user: data.get('user'), pass: data.get('pass') };
-		fetch('/api/create/user', {
-			method: 'POST',
-			credentials: 'include',
-			body: JSON.stringify(item),
-			headers: { 'Content-Type' : 'application/json' }
-		}).then(res=>res.ok === true ? this.setState({redirect: true}): console.log('Failed'));
+		this.state = {
+			id: null,
+			user: '',
+			details: true,
+		}
+		this.handleClick = this.handleClick.bind(this);
 	}
 	componentDidMount(){
-		fetch('/api/check/user',{
+		fetch('/acc', {
+			method: 'GET',
 			credentials: 'include'
-		}).then(res=>res.json()).then(res=>this.setState({users: res}));
+		}).then(res=>res.json()).then(res=>this.setState({ id: res.id, user: res.user, details: !this.state.details}));
+	}
+	handleClick(e){
+		e.preventDefault;
+		const proDetails = document.getElementById('proDetails');
+		const { details } = this.state;
+		if(details === true){
+			proDetails.className = 'proDetails';
+		}
+		else{
+			proDetails.className = 'show';
+		}
+		this.setState({details: !details});
+
 	}
 	render(){
-		const { redirect, users } = this.state;
-		if(redirect){
-			return <Redirect to='/' />;
+		const { id, user } = this.state;
+		console.log(id);
+		if(String(user)==='undefined'){
+			return (<Link to='/create/user'>Create account here.</Link>);
 		}
-			return (<form onSubmit={this.handleSubmit}>
-						<Link to='/'>Go back</Link><br/>
-						<label><strong>Create Account</strong></label><br/>
-						<p id='checker'></p>
-						<input type='text' placeholder='Username' name='user' onChange={this.handleChange} id='user' required/><br/>
-						<input type='password' placeholder='Password' name='pass' required/><br/>
-						<input type='submit' value='Submit' />
-					</form>);
+		else{
+			return (<div className='header'>Hello, {user}
+				<ul className='details' id='details'>
+				<li><button onClick={this.handleClick}>&equiv;</button></li>
+				<div className='proDetails' id='proDetails'>
+				<li><Link to='#'>Profile</Link></li>
+				<li><Link to='#'>Logout</Link></li>
+				</div>
+				</ul>
+				</div>);
 		}
 	}
+}
 
-export default CreateAcc;
+export default Header;
