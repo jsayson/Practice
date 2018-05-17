@@ -8,8 +8,9 @@ class Header extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
+			id: null,
 			user: '',
-			details: true
+			details: true,
 		}
 		this.handleClick = this.handleClick.bind(this);
 	}
@@ -17,14 +18,12 @@ class Header extends React.Component{
 		fetch('/acc', {
 			method: 'GET',
 			credentials: 'include'
-		}).then(res=>res.json()).then(res=>this.setState({user: res.user, details: !this.state.details}));
+		}).then(res=>res.json()).then(res=>this.setState({ id: res.id, user: res.user, details: !this.state.details}));
 	}
 	handleClick(e){
 		e.preventDefault;
-		console.log('hi');
 		const proDetails = document.getElementById('proDetails');
 		const { details } = this.state;
-		console.log('handleClick'+ details);
 		if(details === true){
 			proDetails.className = 'proDetails';
 		}
@@ -35,8 +34,8 @@ class Header extends React.Component{
 
 	}
 	render(){
-		console.log(this.state.details);
-		const { user } = this.state;
+		const { id, user } = this.state;
+		console.log(id);
 		if(String(user)==='undefined'){
 			return (<Link to='/create/user'>Create account here.</Link>);
 		}
