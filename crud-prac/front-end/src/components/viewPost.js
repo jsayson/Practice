@@ -69,10 +69,12 @@ class Comments extends React.Component{
 	componentDidMount(){
 		const postId = this.props.postId;
 		const apiUrl = '/api/post/comments/';
+		console.log(apiUrl+postId);
 		fetch(apiUrl+postId, {credentials: 'include',}).then(res=>res.json()).then(res=>this.setState({comments: res, isLoaded: true}), (error)=>this.setState({isLoaded: false, error})) 
 	}
 	render(){
 		const { comments, error, isLoaded } = this.state;
+		console.log(comments);
 		if(error){
 			return (<p><strong>Cant find comments</strong></p>);
 		}
