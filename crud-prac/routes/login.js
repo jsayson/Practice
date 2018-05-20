@@ -5,16 +5,19 @@ module.exports = function(app, db){
 		sess = req.session;
 		const items = { user: req.body.user, pass: req.body.pass };
 		console.log(items); 
-		console.log('accid '+sess.accId);
 		if(String(sess.accId)==='undefined'){
-			dbc.collection('accounts').find(items).toArray((err, docs)=>{
+			dbc.collection('accounts').find({'user': req.body.user}).toArray((err, docs)=>{
 				if(err) throw err;
-				sess.accId = docs[0]._id;
-				sess.user = docs[0].user;
-				sess.pass = docs[0].pass;
-				console.log(docs);
-				console.log(sess);
-				res.send('success');
+				if(req.body.pass === docs[0].pass && req.body.user === docs[0].user){
+					sess.accId = docs[0]._id;
+					sess.user = docs[0].user;
+					sess.pass = docs[0].pass;
+					console.log('accid '+sess.accId);
+					res.send({'Message' : 'Success', 'Status': true});
+				}
+				else{
+					res.send({'Message' : 'Wrong password', 'Status': false});	
+				}
 			});
 		}
 		else{
