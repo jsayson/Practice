@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+import { Redirect } from 'react-router';
+
 class Login extends React.Component{
 	constructor(props){
 		super(props);
-		this.state = { active: false };
+		this.state = { active: false, message: '' };
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	handleSubmit(e){
@@ -16,14 +18,20 @@ class Login extends React.Component{
 			credentials: 'include',
 			body: JSON.stringify(item),
 			headers: { 'Content-Type': 'application/json'}
-		}).then(res=> res.ok === true ? console.log('success') : console.log('failed'));
+		}).then(result=>result.json()).then(res=>this.setState({message: res.Message, active: res.Status}));
 	}
 	render(){
-		return (<form onSubmit={this.handleSubmit}>
+		const { active, message } = this.state;
+		if(String(active)==='true'){
+			return <Redirect to='/' />;
+		}
+		else{
+			return (<form onSubmit={this.handleSubmit}>
 			<input type='text' placeholder='Username' name='user' required/><br/>
 			<input type='password' placeholder='Password' name='pass' required/><br/>
 			<input type='submit' value='Login' />
 			</form>);
+		}
 	}
 }
 
