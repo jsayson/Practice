@@ -43,7 +43,8 @@ class Posts extends React.Component{
 		this.state = {
 			items: [],
 			isLoaded: false,
-			error: false
+			error: false,
+			user: []
 		}
 	}
 	componentDidMount(){
@@ -51,9 +52,15 @@ class Posts extends React.Component{
 			method: 'GET',
 			credentials: 'include'
 		}).then(res=>res.json()).then(res=>this.setState({items: res, isLoaded: true}), (error)=>this.setState({isLoaded: false, error}));
+
+		fetch('/acc',{
+			method: 'GET',
+			credentials: 'include'
+		}).then(res=>res.json()).then(res=>this.setState({user: res.user}));
 	}
 	render(){
-		const { items, isLoaded, error } = this.state; 
+		const { items, isLoaded, error, user } = this.state; 
+		console.log(user);
 		if(error){
 			return <h1>Error: 404</h1>
 		}
@@ -67,10 +74,18 @@ class Posts extends React.Component{
 				</div>);
 		}
 		else{
-			return (<div>
-				<Link to='/login'>Already have an account?</Link><br/>
-				<Link to='/submit'>Wanna write something?</Link><br/>
+			if(String(user)==='undefined'){
+				return (<div>
+					<Link to='/login'>Already have an account?</Link><br/>
+					<Link to='/submit'>Wanna write something?</Link><br/>
+					{/* items.map(res=><Items post={res} key={res._id} />) */}
+					<p><strong>You must login to view posts</strong></p>
+					</div>);
+			}
+			else{
+				return (<div><p><strong>Posts</strong></p>
 				{ items.map(res=><Items post={res} key={res._id} />) } </div>);
+			}
 		}
 	}
 }
