@@ -10,10 +10,12 @@ import SubmitPost from './components/submitPost.js';
 import EditPost from './components/editPost.js';
 import createAcc from './components/createUser.js';
 import Header from './components/header.js';
+import Login from './components/login.js';
 
 import './css/loader.css';
 import './css/hide.css';
 import './css/img.css';
+import './css/body.css';
 
 
 function Items(props){
@@ -66,7 +68,8 @@ class Posts extends React.Component{
 		}
 		else{
 			return (<div>
-				<Link to='/submit'>Wanna write something?</Link>
+				<Link to='/login'>Already have an account?</Link><br/>
+				<Link to='/submit'>Wanna write something?</Link><br/>
 				{ items.map(res=><Items post={res} key={res._id} />) } </div>);
 		}
 	}
@@ -84,6 +87,7 @@ class App extends React.Component{
 			<Route exact path='/post/:id' component={ViewPost} />
 			<Route exact path='/post/edit/:id' component={EditPost} />
 			<Route exact path='/create/user' component={createAcc} />
+			<Route exact path='/login' component={Login} />
 			</div>
 			</Router>
 			</CookiesProvider>);
