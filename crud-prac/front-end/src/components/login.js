@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { Redirect } from 'react-router';
 
+import { Link } from 'react-router-dom';
+
 class Login extends React.Component{
 	constructor(props){
 		super(props);
@@ -22,15 +24,19 @@ class Login extends React.Component{
 	}
 	render(){
 		const { active, message } = this.state;
+		console.log(String(active));
+		console.log(message);
 		if(String(active)==='true'){
 			return <Redirect to='/' />;
 		}
 		else{
-			return (<form onSubmit={this.handleSubmit}>
+			return (<div>
+			<Link to='/'>Go back.</Link><br/>
+			<form onSubmit={this.handleSubmit}>
 			<input type='text' placeholder='Username' name='user' required/><br/>
 			<input type='password' placeholder='Password' name='pass' required/><br/>
 			<input type='submit' value='Login' />
-			</form>);
+			</form></div>);
 		}
 	}
 }
