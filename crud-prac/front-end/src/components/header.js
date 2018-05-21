@@ -11,6 +11,8 @@ class Header extends React.Component{
 			id: null,
 			user: '',
 			details: true,
+			isLoaded: false,
+			error: false
 		}
 		this.handleClick = this.handleClick.bind(this);
 	}
@@ -18,7 +20,7 @@ class Header extends React.Component{
 		fetch('/acc', {
 			method: 'GET',
 			credentials: 'include'
-		}).then(res=>res.json()).then(res=>this.setState({ id: res.id, user: res.user, details: !this.state.details}));
+		}).then(res=>res.json()).then(res=>this.setState({ id: res.id, user: res.user, isLoaded: true, details: !this.state.details}), error=>this.setState({isLoaded: false, error}));
 	}
 	handleClick(e){
 		e.preventDefault;
@@ -34,21 +36,30 @@ class Header extends React.Component{
 
 	}
 	render(){
-		const { id, user } = this.state;
+		const { id, user, isLoaded, error } = this.state;
 		console.log(id);
-		if(String(user)==='undefined'){
-			return (<Link to='/create/user'>Create account here.</Link>);
+		if(error){
+			return <p><strong>Please reload the page.</strong></p>;
+		}
+		else if(!isLoaded){
+			return <h1>Loading...</h1>;
 		}
 		else{
-			return (<div className='header'>Hello, {user}
-				<ul className='details' id='details'>
-				<li><button onClick={this.handleClick}>&equiv;</button></li>
-				<div className='proDetails' id='proDetails'>
-				<li><Link to='#'>Profile</Link></li>
-				<li><Link to='#'>Logout</Link></li>
-				</div>
-				</ul>
-				</div>);
+			console.log('error: '+error+', isLoaded: '+isLoaded);
+			if(String(user)==='undefined'){
+				return (<Link to='/create/user'>Create account here.</Link>);
+			}
+			else{
+				return (<div className='header'>Hello, {user}
+					<ul className='details' id='details'>
+					<li><button onClick={this.handleClick}>&equiv;</button></li>
+					<div className='proDetails' id='proDetails'>
+					<li><Link to='#'>Profile</Link></li>
+					<li><Link to='#'>Logout</Link></li>
+					</div>
+					</ul>
+					</div>);
+			}
 		}
 	}
 }
