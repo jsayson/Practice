@@ -14,8 +14,6 @@ function Sample(item){
 	for(let i=item.length-1; i>=0; i--){
 		word += item[i].toString();
 	}
-	console.log(word);
-
 	if(word===item){
 		return true;
 	}
@@ -25,6 +23,24 @@ function Sample(item){
 }
 
 Sample(sampleWord);
+
+function Sample2(item){
+	const item1 = item.split('');
+	const num = item1.length-1;
+	let word = '';
+	for(let i=0;i<item.length;i++){
+		if(item1[i]===item1[num-i]){
+			console.log(item1[i] +' || '+item1[num-i]);
+		}
+		else{
+			console.log('failed');
+			return false;
+		}
+	}
+}
+
+Sample2(sampleWord);
+
 </script>
 </body>
 </html>
