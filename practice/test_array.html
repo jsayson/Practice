@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+</head>
+<body>
+	<form id='form'>
+		<input type='text' placeholder='user' name='user'><br/>
+		<input type='password' placeholder='pass' name='pass'><br/>
+		<input type='submit' value='Submit' id='submit'/>
+	</form>
+	<script>
+	const form = document.getElementById('form');
+	const data = new FormData(form);
+	const submit = document.getElementById('submit');
+	localStorage.accounts = [];
+	submit.addEventListener('click', (e)=>{
+	e.preventDefault();	
+	let account = {username: data.get('user'), password: data.get('pass') };
+	console.log(data.get('pass'))
+	// console.log(JSON.stringify(account.password));
+	localStorage.user = account.username;
+	localStorage.pass = account.password;
+	});
+	// localStorage.removeItem('accounts');
+	console.log(localStorage)
+	</script>
+</body>
+</html>
