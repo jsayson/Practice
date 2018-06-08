@@ -1,0 +1,27 @@
+div.topUsers{
+	display: grid;
+}
+
+div.topUserImg > img{
+	grid-area: img;
+}
+
+div.topUserDesc{
+	grid-area: desc;
+}
+
+div.topUserItems{
+	grid-area: items;
+}
+
+.pages ul li{
+	display: inline-block;
+}
+
+.pages ul li a{
+    color: black;
+    border: 1px solid;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}

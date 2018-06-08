@@ -1,0 +1,29 @@
+body{
+	/*width: 100%;*/
+	margin: 0 !important;
+	max-height: 100%;
+	overflow-x: scroll;
+}
+.account{ 
+	grid-area: header; 
+	background-color: #00BFA5;
+}
+.search{ 
+	grid-area: search;
+	background-color: #1DE9B6; 
+}
+.trends{ 
+	grid-area: trends; 
+	background-color: #64FFDA;
+}
+.tweets{ 
+	grid-area: tweets; 
+	background-color: #A7FFEB;
+}
+.container{
+	display: grid;
+	grid-template-areas: 
+		'header header header header header header'
+		'trends tweets tweets tweets tweets search'
+		'trends tweets tweets tweets tweets search';
+}

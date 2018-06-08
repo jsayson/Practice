@@ -1,0 +1,27 @@
+{
+  "name": "twitfeed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "client": "cd front-end && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "get-twitter-bearer-token": "^1.0.0",
+    "pouchdb": "^6.4.3",
+    "react-router": "^4.2.0",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.17.5"
+  }
+}
