@@ -19,9 +19,9 @@ const accounts = new PouchDB('accounts');
 
 
 const client = new Twitter({
-	consumer_key : 'UqSvoQfXveHkMGiXMMsY6m6z7',
-	consumer_secret : 'c7UYLhw1Rx8m97XB3b9pCUjdrDfKKqevPurW6AwrwT4toVmZ2O',
-	bearer_token : 'AAAAAAAAAAAAAAAAAAAAALW66QAAAAAAqr15ddgxkvv9hCzac5Jaje5k4Lg%3DPuGf0jFz0XzlQoDJZZ6ihsoP71MDaoC0RTYrjotlRTKunqm95f'
+	consumer_key : 'consumer_key',
+	consumer_secret : 'consumer_secret',
+	bearer_token : 'your_bearer_token'
 
 });
 
