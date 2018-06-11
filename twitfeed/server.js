@@ -81,10 +81,6 @@ app.post('/api/loginAcc', (req, res)=>{
 	// }).then(res=>console.log(res)).then((error)=>console.log(error));
 	// 	res.send('success');
 
-	// twitter_consumer_key = 'UqSvoQfXveHkMGiXMMsY6m6z7',
-	// twitter_consumer_secret = 'c7UYLhw1Rx8m97XB3b9pCUjdrDfKKqevPurW6AwrwT4toVmZ2O',
-	// const_bearer_token = 'AAAAAAAAAAAAAAAAAAAAALW66QAAAAAAqr15ddgxkvv9hCzac5Jaje5k4Lg%3DPuGf0jFz0XzlQoDJZZ6ihsoP71MDaoC0RTYrjotlRTKunqm95f'
-
 
 // getBearerToken(twitter_consumer_key, twitter_consumer_secret, (err, res) => {
 //   if (err) {
