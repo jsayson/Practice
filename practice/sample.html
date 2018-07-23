@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<style>
+	.input-contain{
+		margin: 2px !important;
+		height: 50px;
+		width: 200px;
+		position: relative;
+		border-bottom: 2px solid #000;
+	}
+	input{
+		border: none;
+		position: absolute;
+		bottom: 0;
+	}
+	label{
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+		font-size: 12px;
+	}
+	label.focus{
+		position: absolute;
+		top: 0;
+	}
+	</style>
+</head>
+<body>
+	<div class='input-contain'>
+	<label id='label' onClick='focusThis()'>Username</label>
+	<input id='text' type='text' onfocus='focusThis()' onblur='blurThis()'/>
+	</div>
+	<script>
+	const input = document.getElementById('text');
+	const label = document.getElementById('label');
+	input.value = '';
+	console.log(label);
+	function focusThis(){
+		input.focus();
+		label.classList.add('focus');
+	}
+	function blurThis(){
+		if(input.value===''){
+			label.classList.remove('focus');
+		}
+	}
+	</script>
+</body>
+</html>
