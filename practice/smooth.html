@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<style>
+html, body{
+	margin: 0;
+	height: auto;
+	width: 100%;
+}
+body{
+	position: relative !important;
+}
+header{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: gray;
+}
+ul{
+	overflow: hidden;
+}
+li{
+	display: inline-block;
+	padding: 2px;
+}
+li:hover{
+	cursor: pointer;
+	color: #fff;
+}
+main{
+	margin-top: 5%;
+}
+section{
+	height: 500px;
+	width: 100% !important;
+}
+#section1{
+	background-color: #003300;
+}
+#section2{
+	background-color: #006633;
+}
+#section3{
+	background-color: #009966;
+}
+</style>
+</head>
+<body>
+<header>
+	<nav>
+		<ul>
+			<li>Section 1</li>
+			<li>Section 2</li>
+			<li>Section 3</li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<section id='section1'>
+		<h1>Section 1</h1>
+	</section>
+	<section id='section2'>
+		<h1>Section 2</h1>
+	</section>
+	<section id='section3'>
+		<h1>Section 3</h1>
+	</section>
+</main>
+<script>
+	const header = document.querySelectorAll('li');
+	const section1 = document.getElementById('section1');
+	const section2 = document.getElementById('section2');
+	const section3 = document.getElementById('section3');	
+	var interval; 
+	const topMargin = document.body;
+	console.log(topMargin);
+	for(let i=0; i<header.length; i++){
+		header[i].addEventListener('click', ()=>{
+		let nav = header[i].innerText;
+			switch(nav){
+				case 'Section 1':
+					scrollYaxis(section1.offsetTop);
+					break;
+				case 'Section 2':
+					scrollYaxis(section2.offsetTop);
+					break;
+				case 'Section 3':
+					scrollYaxis(section3.offsetTop);
+					break;
+				default:
+					scrollYaxis(0);
+			}
+		});
+	}
+	function scrollYaxis(n){
+		if(n<window.scrollY){
+			clearInterval(interval);
+			interval = setInterval(()=>{
+				window.scrollTo({top: n, behavior: 'smooth'});
+				if(window.scrollY <= n){clearInterval(interval)}
+			}, 7)
+		}
+		else{
+			clearInterval(interval);
+			interval = setInterval(()=>{
+				window.scrollTo({top: n, behavior: 'smooth'});
+				if(window.scrollY <= n){clearInterval(interval)}
+			}, 7)
+		}
+	}
+</script>
+</body>
+</html>
