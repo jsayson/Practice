@@ -1,0 +1,20 @@
+{
+  "name": "new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "new": "cd new && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run new\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.10",
+    "nodemon": "^1.18.6"
+  }
+}
