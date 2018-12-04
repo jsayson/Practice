@@ -1,11 +1,33 @@
 import React, { Component } from 'react';
 
+function GetMagic(props){
+	console.log(props)
+	return <p>{props.item.greeting}</p>
+}
 
-class AddGreetings extends Component{
+
+class Magic extends Component{
+	render(){
+		let item = this.props.items;
+		if(item.length > 0){
+			return item.map((res)=><GetMagic item={res} />
+			);
+		}
+		else{
+			return <p>Hello</p>
+		}
+	}
+}
+
+
+class SubmitGreeting extends Component{many
 	constructor(props){
 		super(props);
 		this.state = { items : [] };
 		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+	componentWillReceiveProps(props){
+		this.setState({items: props});
 	}
 	handleSubmit(e){
 		e.preventDefault();
@@ -15,12 +37,15 @@ class AddGreetings extends Component{
 			method: 'POST',
 			body: JSON.stringify(item),
 			credentials: 'include',
-			header: { 'Content-Type': 'application/json'}
-		}).then(res => res.ok === true ? console.log('nice!'): console.log('not so nice!'));
+			headers: { 'Content-Type': 'application/json'}
+		}).then(res=>res.json()).then(res=>this.componentWillReceiveProps(res));
+		e.target.value = ' ';
 	}
 	render(){
+		const { items } = this.state;
 		return(
 		<div>
+		<Magic items = {items}/>
 		<form onSubmit={this.handleSubmit} >
 		<input type='text' name='greeting' defaultValue='Magandang Umaga po!' /><br/>
 		<input type='submit' value='submit' />
@@ -28,5 +53,13 @@ class AddGreetings extends Component{
 		</div>);
 	}
 }
+
+class AddGreetings extends Component{
+	render(){
+		return (<SubmitGreeting />);
+	}
+}
+
+
 
 export default AddGreetings;
