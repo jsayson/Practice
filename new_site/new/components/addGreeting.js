@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 function GetMagic(props){
-	console.log(props)
+	console.log(props);
 	return <p>{props.item.greeting}</p>
 }
 
@@ -9,12 +9,14 @@ function GetMagic(props){
 class Magic extends Component{
 	render(){
 		let item = this.props.items;
+		let x = 0;
 		if(item.length > 0){
-			return item.map((res)=><GetMagic item={res} />
+			console.log(item.length);
+			return item.map((res)=><GetMagic item={res} key={x++}/>
 			);
 		}
 		else{
-			return <p>Hello</p>
+			return <span></span>
 		}
 	}
 }
