@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+		body{
+			margin: 0;
+		}
+		thead, tbody tr{
+			display: table;
+			table-layout:fixed;
+			width: 100%;
+		}
+		table{
+			text-align: left;
+		}
+		table, td{
+			border-bottom: 1px solid #ddd;
+		}
+		table, th, td{
+			padding: 10px;
+		}
+		table tbody{
+			display:block;
+			height: 300px;
+			overflow-y: scroll;
+		}
+		thead{
+			width: calc(100% - 1em);
+			font-weight: bold;
+			background-color: #4CAF50;
+			position: sticky;
+			top: 0;
+		}
+		head{
+		}	
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>Head_1</th>
+					<th>Head_2</th>
+					<th>Head_3</th>
+					<th>Head_4</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<script>
+		var tbodyContents = [];
+		for(let i = 0; i < 50; i++){
+			tbodyContents.push("<tr><td>Desc_1</td><td>Desc_2</td><td>Desc_3</td><td>Desc_4</td></tr>"); 
+		}
+		document.querySelector('tbody').innerHTML = tbodyContents.join('');
+		</script>
+	</body>
+</html>
